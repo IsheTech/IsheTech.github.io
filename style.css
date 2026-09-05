@@ -168,7 +168,7 @@ a {
 
 
 /* ==========================================================================
-   4. BRAND LOGO EMBLEM (ORIGINAL ISHETECH DESIGN)
+   4. BRAND LOGO EMBLEM (RESTORED RECTANGULAR CORNER FRAME)
    ========================================================================== */
 .brand { 
   display: inline-flex; 
@@ -183,7 +183,7 @@ a {
   width: 32px; 
   height: 40px; 
   border: 2px solid #83b6b6; 
-  border-radius: 99px; 
+  border-radius: 9px; /* RESTORED original rounded rectangle frame */
   background: transparent; 
   box-sizing: border-box; 
 } 
@@ -228,7 +228,7 @@ a {
 
 
 /* ==========================================================================
-   5. HOMEPAGE HERO SECTION (LAYOUT, SLIDING MESSAGES & HERO AUDIENCE PILLS)
+   5. HOMEPAGE HERO SECTION (IT NETWORK SPECIALIST BACKGROUND IMAGE)
    ========================================================================== */
 .hero { 
   color: #fff; 
@@ -241,7 +241,8 @@ a {
 } 
 
 .hero-restored { 
-  background: linear-gradient(90deg, rgba(8,45,57,.97) 0%, rgba(15,66,82,.91) 56%, rgba(15,66,82,.75) 100%), url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80") center/cover; 
+  background: linear-gradient(90deg, rgba(8,45,57,.95) 0%, rgba(15,66,82,.88) 56%, rgba(15,66,82,.72) 100%), 
+              url("https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat; 
 } 
 
 .hero-grid { 
@@ -549,7 +550,7 @@ h1 em {
 
 
 /* ==========================================================================
-   9. HOMEPAGE SERVICES SECTION (REDUCED PADDING & BRAND SHADES)
+   9. HOMEPAGE SERVICES SECTION (INDIVIDUAL BACKDROP PHOTOS IN CARDS)
    ========================================================================== */
 .section { 
   padding: 80px 0; 
@@ -593,30 +594,36 @@ h2 {
   flex-direction: column; 
   justify-content: space-between; 
   border: 1px solid var(--line); 
-  box-shadow: 0 6px 18px rgba(15, 66, 82, 0.04); 
+  box-shadow: 0 6px 18px rgba(15, 66, 82, 0.05); 
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; 
 } 
 
+/* Card 01: IT Helpdesk with custom backdrop photo */
 .service-card.card-shade-one { 
-  background: #ffffff; 
+  background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(244,249,247,0.96) 100%),
+              url("https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=600&q=80") center/cover no-repeat; 
   border-top: 4px solid var(--teal); 
 } 
 
+/* Card 02: Cloud Solutions with custom backdrop photo */
 .service-card.card-shade-two { 
-  background: #f8fcf9; 
+  background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(240,248,245,0.96) 100%),
+              url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80") center/cover no-repeat; 
   border-top: 4px solid #23727b; 
 } 
 
+/* Card 03: Infrastructure & Setup with custom backdrop photo */
 .service-card.card-shade-three { 
-  background: #f1f8f5; 
+  background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(235,246,243,0.96) 100%),
+              url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80") center/cover no-repeat; 
   border-top: 4px solid #389ba3; 
 } 
 
 .service-grid-new .service-card:hover { 
   transform: translateY(-10px); 
   border-top-color: var(--mint); 
-  border-color: rgba(185, 232, 214, 0.8); 
-  box-shadow: 0 22px 45px rgba(8, 45, 57, 0.15), 0 0 0 2px rgba(185, 232, 214, 0.5); 
+  border-color: rgba(185, 232, 214, 0.9); 
+  box-shadow: 0 22px 45px rgba(8, 45, 57, 0.16), 0 0 0 2px rgba(185, 232, 214, 0.6); 
 } 
 
 .service-card-header { 
@@ -630,7 +637,7 @@ h2 {
   font-size: .75rem; 
   font-weight: 700; 
   color: var(--teal-dark); 
-  background: rgba(185, 232, 214, 0.45); 
+  background: rgba(185, 232, 214, 0.55); 
   padding: 5px 12px; 
   border-radius: 20px; 
   letter-spacing: .05em; 
@@ -644,8 +651,8 @@ h2 {
   background: #ffffff; 
   border-radius: 10px; 
   color: var(--teal); 
-  border: 1px solid rgba(15, 66, 82, 0.12); 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.04); 
+  border: 1px solid rgba(15, 66, 82, 0.15); 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06); 
 } 
 
 .service-svg { 
@@ -687,7 +694,7 @@ h2 {
 } 
 
 .service-card p { 
-  color: var(--muted); 
+  color: var(--ink); 
   font-size: .94rem; 
   line-height: 1.55; 
   margin: 0 0 20px; 
@@ -697,14 +704,14 @@ h2 {
   list-style: none; 
   padding: 0; 
   margin: 0 0 28px; 
-  border-top: 1px dashed rgba(15, 66, 82, 0.15); 
+  border-top: 1px dashed rgba(15, 66, 82, 0.2); 
   padding-top: 16px; 
 } 
 
 .service-list-mini li { 
   font-size: .86rem; 
   color: var(--ink); 
-  font-weight: 500; 
+  font-weight: 600; 
   margin-bottom: 8px; 
   display: flex; 
   align-items: center; 
@@ -734,11 +741,11 @@ h2 {
 
 
 /* ==========================================================================
-   10. WHY ISHETECH / UNBRANDED CORPORATE BLACK IT SPECIALIST PHOTO BACKDROP
+   10. WHY ISHETECH / DARK ADVANTAGE SECTION WITH TECH GRID BACKDROP
    ========================================================================== */
 .dark-advantage-theme { 
-  background: linear-gradient(135deg, rgba(8, 45, 57, 0.52) 0%, rgba(15, 66, 82, 0.58) 100%),
-              url("https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat; 
+  background: linear-gradient(135deg, rgba(8, 45, 57, 0.94) 0%, rgba(15, 66, 82, 0.96) 100%),
+              url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat; 
   padding: 100px 0 110px; 
   color: #ffffff; 
   position: relative; 
@@ -769,7 +776,7 @@ h2 {
   margin-top: 30px; 
 } 
 
-/* 4-Pillar Glass Cards over Lightened Photo */
+/* 4-Pillar Glass Cards */
 .dark-glass-card { 
   background: rgba(8, 45, 57, 0.72) !important; 
   backdrop-filter: blur(14px); 
