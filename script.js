@@ -1,6 +1,9 @@
 const page = window.location.pathname.split('/').pop() || 'index.html';
 const isActive = (file) => page === file ? ' active' : '';
-const brand = '<a class="brand" href="index.html" aria-label="IsheTech Systems home"><span class="brand-mark" aria-hidden="true"><i>I</i></span><span>Ishe<span>Tech</span></span></a>';
+
+/* BRAND LOGO WITH EXACT ISHETECH CASING */
+const brand = '<a class="brand" href="index.html" aria-label="IsheTech Systems home"><span class="brand-mark" aria-hidden="true"><i></i></span><span class="brand-text">ishe<span>Tech</span></span></a>';
+
 const navigation = `<button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><b class="sr-only">Open menu</b></button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a class="${isActive('index.html').trim()}" href="index.html">Home</a><div class="nav-dropdown"><a class="${isActive('about.html').trim()} ${isActive('team.html').trim()}" href="about.html">About Us <span>⌄</span></a><div class="submenu"><a href="about.html">Our story</a><a href="team.html">Our team</a></div></div><div class="nav-dropdown"><a class="${isActive('services.html').trim()}" href="services.html">Services <span>⌄</span></a><div class="submenu"><a href="services.html#support">IT support</a><a href="services.html#cloud">Cloud &amp; systems</a><a href="services.html#security">IT security</a><a href="services.html#infrastructure">Infrastructure</a><a href="services.html#strategy">IT strategy</a></div></div><a class="${isActive('why-ishetech.html').trim()}" href="why-ishetech.html">Why IsheTech</a><a class="${isActive('contact.html').trim()}" href="contact.html">Contact us</a></nav>`;
 
 document.querySelectorAll('.site-header .nav-wrap').forEach((header) => {
