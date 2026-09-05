@@ -550,7 +550,7 @@ h1 em {
 
 
 /* ==========================================================================
-   9. HOMEPAGE SERVICES SECTION (EXACT SHOOTING-STAR LINE TRACE & DISAPPEAR LOOP)
+   9. HOMEPAGE SERVICES SECTION (OPTIMIZED SHOOTING-STAR TRACE & REDRAW LOOP)
    ========================================================================== */
 .section { 
   padding: 80px 0; 
@@ -594,10 +594,11 @@ h2 {
   display: flex; 
   flex-direction: column; 
   justify-content: space-between; 
-  color: #ffffff !important; 
-  backdrop-filter: blur(14px); 
-  -webkit-backdrop-filter: blur(14px); 
-  box-shadow: 0 12px 30px rgba(5, 29, 37, 0.25); 
+  position: relative; 
+  overflow: hidden; 
+  backdrop-filter: blur(16px); 
+  -webkit-backdrop-filter: blur(16px); 
+  box-shadow: 0 14px 35px rgba(5, 29, 37, 0.3); 
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; 
 } 
 
@@ -646,72 +647,7 @@ h2 {
   letter-spacing: .05em; 
 } 
 
-.service-icon-wrap { 
-  width: 50px; 
-  height: 50px; 
-  display: grid; 
-  place-items: center; 
-  background: rgba(185, 232, 214, 0.15); 
-  border-radius: 12px; 
-  color: var(--mint); 
-  border: 1px solid rgba(185, 232, 214, 0.3); 
-  backdrop-filter: blur(8px); 
-} 
-
-.service-svg { 
-  width: 26px; 
-  height: 26px; 
-} 
-
-/* --- EXACT SHOOTING STAR / LINE-TRACE ANIMATION (WORKS VIA pathLength="100") --- */
-.animated-path {
-  stroke-dasharray: 100 100;
-  stroke-dashoffset: 0;
-  animation: shooting-star-dash 7s ease-in-out infinite;
-}
-
-/* Staggered delays across 3 cards */
-.card-shade-one .animated-path {
-  animation-delay: 0s;
-}
-
-.card-shade-two .animated-path {
-  animation-delay: 2.3s;
-}
-
-.card-shade-three .animated-path {
-  animation-delay: 4.6s;
-}
-
-@keyframes shooting-star-dash {
-  0% {
-    stroke-dasharray: 100 0;
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-  30% {
-    stroke-dasharray: 25 75;
-    stroke-dashoffset: -40;
-    opacity: 0.85;
-  }
-  48%, 58% {
-    stroke-dasharray: 0 100;
-    stroke-dashoffset: -100;
-    opacity: 0;
-  }
-  78% {
-    stroke-dasharray: 25 75;
-    stroke-dashoffset: -140;
-    opacity: 0.85;
-  }
-  100% {
-    stroke-dasharray: 100 0;
-    stroke-dashoffset: -200;
-    opacity: 1;
-  }
-}
-
-.dark-service-card h3 { 
+.service-card h3 { 
   font-size: 1.45rem; 
   color: #ffffff !important; 
   margin-bottom: 12px; 
@@ -719,7 +655,7 @@ h2 {
   text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 } 
 
-.dark-service-card p { 
+.service-card p { 
   color: #d5e4e3 !important; 
   font-size: .95rem; 
   line-height: 1.6; 
@@ -752,7 +688,7 @@ h2 {
   font-size: .85rem; 
 } 
 
-.dark-service-card .service-link { 
+.service-card .service-link { 
   font-size: .92rem; 
   font-weight: 700; 
   color: var(--mint) !important; 
@@ -763,9 +699,79 @@ h2 {
   text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 } 
 
-.dark-service-card:hover .service-link { 
+.service-card:hover .service-link { 
   color: #ffffff !important; 
   gap: 12px; 
+} 
+
+/* --- ICON WRAPPER & REFINED SHOOTING-STAR TIMING --- */
+.service-icon-wrap { 
+  width: 50px; 
+  height: 50px; 
+  display: grid; 
+  place-items: center; 
+  background: rgba(185, 232, 214, 0.15); 
+  border-radius: 12px; 
+  color: var(--mint); 
+  border: 1px solid rgba(185, 232, 214, 0.3); 
+  backdrop-filter: blur(8px); 
+} 
+
+.service-svg { 
+  width: 26px; 
+  height: 26px; 
+} 
+
+/* Slower stroke movement (8.5s total) with shorter hidden pause */
+.animated-path {
+  stroke-dasharray: 100 100;
+  stroke-dashoffset: 0;
+  animation: shooting-star-dash 8.5s ease-in-out infinite;
+}
+
+.card-shade-one .animated-path {
+  animation-delay: 0s;
+}
+
+.card-shade-two .animated-path {
+  animation-delay: 2.8s;
+}
+
+.card-shade-three .animated-path {
+  animation-delay: 5.6s;
+}
+
+@keyframes shooting-star-dash {
+  0% {
+    stroke-dasharray: 100 0;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  35% {
+    stroke-dasharray: 30 70;
+    stroke-dashoffset: -50;
+    opacity: 0.9;
+  }
+  48% {
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: -100;
+    opacity: 0;
+  }
+  53% {
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: -100;
+    opacity: 0;
+  }
+  72% {
+    stroke-dasharray: 30 70;
+    stroke-dashoffset: -150;
+    opacity: 0.9;
+  }
+  100% {
+    stroke-dasharray: 100 0;
+    stroke-dashoffset: -200;
+    opacity: 1;
+  }
 }
 
 
