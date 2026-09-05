@@ -16,11 +16,11 @@
    2. GLOBAL RESETS & BODY BASE STYLES
    ========================================================================== */
 * { 
-  box-sizing: border-box; 
+  box-sizing: border-box; /* */
 } 
 
 html { 
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth; /* */
 } 
 
 body { 
@@ -380,7 +380,7 @@ h1 em {
   justify-content: center; 
   gap: 12px; 
   min-height: 52px; 
-  padding: 0 26px; 
+  padding: 0 24px; 
   border-radius: 6px; 
   font-weight: 700; 
   font-size: .95rem; 
@@ -411,7 +411,7 @@ h1 em {
 
 .button-secondary:hover { 
   background: rgba(255, 255, 255, .15); 
-  border-color: var(--mint); 
+  border-color: var(--mint) !important; 
   color: #ffffff !important; 
 } 
 
@@ -559,7 +559,8 @@ h1 em {
 } 
 
 .section.services,
-.section.services-grid-section { 
+.section.services-grid-section,
+.team-grid-section { 
   padding-top: 60px; 
   padding-bottom: 90px; 
   background: var(--cream);
@@ -598,7 +599,16 @@ h2 {
   gap: 36px; 
 } 
 
-/* Dark Glassmorphic Service Cards */
+/* Dynamic circular grid for Team Pods (Option 2) */
+.services-page-grid.starburst-grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 40px; 
+  max-width: 900px; 
+  margin: 0 auto; 
+} 
+
+/* Dark Glassmorphic Service Cards/Pods */
 .service-card { 
   border-radius: 16px; 
   padding: 38px 34px; 
@@ -613,25 +623,36 @@ h2 {
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; 
 } 
 
-.service-card.card-shade-one { 
+/* Pod Background Shades */
+.service-card.card-shade-one, 
+.service-card.pod-card-1 { 
   background: linear-gradient(180deg, rgba(8, 45, 57, 0.90) 0%, rgba(15, 66, 82, 0.94) 100%),
               url("https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
   border: 1px solid rgba(185, 232, 214, 0.3); 
   border-top: 4px solid var(--mint); 
 } 
 
-.service-card.card-shade-two { 
+.service-card.card-shade-two, 
+.service-card.pod-card-2 { 
   background: linear-gradient(180deg, rgba(15, 66, 82, 0.90) 0%, rgba(5, 35, 44, 0.94) 100%),
               url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
   border: 1px solid rgba(185, 232, 214, 0.3); 
   border-top: 4px solid #64bda5; 
 } 
 
-.service-card.card-shade-three { 
+.service-card.card-shade-three, 
+.service-card.pod-card-3 { 
   background: linear-gradient(180deg, rgba(5, 35, 44, 0.90) 0%, rgba(8, 45, 57, 0.94) 100%),
               url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
   border: 1px solid rgba(185, 232, 214, 0.3); 
   border-top: 4px solid #389ba3; 
+} 
+
+/* Special desktop rule for Card 03 to span full width in Starburst grid */
+.starburst-grid .pod-card-3 { 
+  grid-column: 1 / -1; 
+  max-width: 600px; 
+  margin: 0 auto; 
 } 
 
 .service-card:hover { 
@@ -687,7 +708,7 @@ h2 {
   margin-bottom: 14px; 
 } 
 
-/* 2-Column Checkmark Grid for Expanded 1x1 Cards */
+/* Standard list view used in services.html */
 .service-list-mini.expanded-two-col { 
   display: grid; 
   grid-template-columns: repeat(2, 1fr); 
@@ -699,17 +720,31 @@ h2 {
   padding-top: 20px; 
 } 
 
-.service-list-mini li { 
-  font-size: .94rem; 
-  color: #ffffff !important; 
-  font-weight: 500; 
+/* Deliverables pills used in team.html grid pods */
+.deliverables-pills { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
   display: flex; 
-  align-items: center; 
+  flex-wrap: wrap; 
   gap: 10px; 
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  justify-content: center; 
 } 
 
-.service-list-mini li span { 
+.deliverables-pills li { 
+  font-size: .7rem; 
+  font-weight: 700; 
+  color: #ffffff; 
+  background: rgba(185, 232, 214, 0.12); 
+  border: 1px solid rgba(185, 232, 214, 0.2); 
+  padding: 5px 12px; 
+  border-radius: 15px; 
+  letter-spacing: .02em; 
+} 
+
+.service-card .button { font-size: .8rem; } 
+
+.deliverables-pills li span { 
   color: var(--mint) !important; 
   font-weight: 800; 
   font-size: .9rem; 
@@ -744,9 +779,14 @@ h2 {
   animation: shooting-star-dash 8.5s ease-in-out infinite;
 }
 
-.card-shade-one .animated-path { animation-delay: 0s; }
-.card-shade-two .animated-path { animation-delay: 2.8s; }
-.card-shade-three .animated-path { animation-delay: 5.6s; }
+.card-shade-one .animated-path, 
+.pod-card-1 .animated-path { animation-delay: 0s; }
+
+.card-shade-two .animated-path, 
+.pod-card-2 .animated-path { animation-delay: 2.8s; }
+
+.card-shade-three .animated-path, 
+.pod-card-3 .animated-path { animation-delay: 5.6s; }
 
 @keyframes shooting-star-dash {
   0% { stroke-dasharray: 100 0; stroke-dashoffset: 0; opacity: 1; }
@@ -1065,7 +1105,7 @@ h2 {
 
 
 /* ==========================================================================
-   13. SUB-PAGES (ABOUT, PAGE HERO, CONTACT FORM)
+   13. SUB-PAGES (PAGE HERO & SHARED POD STYLES)
    ========================================================================== */
 .inner-header { 
   position: relative; 
@@ -1172,184 +1212,25 @@ h2 {
   font-size: .73rem; 
 }
 
-
-/* --- ORBITAL TEAM VISUALIZER (NEW CLASS) --- */
-.orbital-team-section { 
-  background: var(--cream); 
-  padding: 100px 0; 
+/* Special CSS for the circular grid pods on team.html */
+.services-page-grid.starburst-grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 40px; 
+  max-width: 900px; 
+  margin: 0 auto; 
 } 
 
-.orbit-visualizer { 
-  position: relative; 
-  height: min(65vw, 680px); 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  z-index: 1; 
-  overflow: visible;
+/* Special desktop rule for Card 03 to span full width */
+.starburst-grid .pod-card-3 { 
+  grid-column: 1 / -1; 
+  max-width: 600px; 
+  margin: 0 auto; 
 } 
-
-.central-hub { 
-  position: absolute; 
-  width: 220px; 
-  height: 220px; 
-  background: rgba(8, 45, 57, 0.82); 
-  border-radius: 50%; 
-  backdrop-filter: blur(14px); 
-  border: 2px solid rgba(185, 232, 214, 0.3); 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  color: #fff; 
-  z-index: 5; 
-  box-shadow: 0 0 45px rgba(8, 45, 57, 0.4); 
-} 
-
-.central-hub .brand-mark { 
-  width: 38px; 
-  height: 48px; 
-  border-color: #ffffff; 
-  margin-bottom: 12px; 
-} 
-
-.hub-label { 
-  font-family: "Space Grotesk", sans-serif; 
-  font-size: 1rem; 
-  font-weight: 700; 
-  text-transform: uppercase; 
-  letter-spacing: .08em; 
-  color: var(--mint); 
-  text-align: center; 
-  line-height: 1.3; 
-} 
-
-.satellite-orbit { 
-  position: absolute; 
-  width: 100%; 
-  height: 100%; 
-  animation: orbit-spin 45s linear infinite; 
-} 
-
-.satellite-pod { 
-  position: absolute; 
-  width: min(32vw, 320px); 
-  background: rgba(8, 45, 57, 0.85); 
-  border-radius: 50%; 
-  backdrop-filter: blur(16px); 
-  border: 1px solid rgba(255, 255, 255, 0.15); 
-  aspect-ratio: 1 / 1; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  padding: 30px; 
-  text-align: center; 
-  box-shadow: 0 15px 35px rgba(0,0,0,.25); 
-  transition: all 0.3s ease; 
-  color: #ffffff; 
-  overflow: hidden;
-} 
-
-.satellite-pod p { color: #d5e4e3; font-size: .95rem; line-height: 1.5; margin: 0 0 14px; } 
-
-.deliverables-pills li { font-size: .88rem; color: #ffffff; font-weight: 500; display: flex; align-items: center; gap: 8px; text-shadow: 0 1px 3px rgba(0,0,0,0.5); } 
-
-.deliverables-pills li span { color: var(--mint); font-weight: 800; font-size: .85rem; } 
-
-.pod-2 .eyebrow { color: #64bda5; }
-.pod-3 .eyebrow { color: #389ba3; }
-
-.pod-2:hover { border-color: #64bda5; }
-.pod-3:hover { border-color: #389ba3; }
-
-.central-hub, .satellite-pod { animation: none !important; } 
-
-.satellite-pod:hover { 
-  transform: translateY(-8px) scale(1.02); 
-  border-color: var(--mint); 
-  box-shadow: 0 25px 50px rgba(8, 45, 57, 0.5), 0 0 0 1px var(--mint); 
-} 
-
-.pod-header .service-icon-wrap { 
-  margin: 0 auto 16px; 
-} 
-
-.satellite-pod h3 { 
-  font-size: 1.35rem; 
-  color: #ffffff; 
-  margin: 0 0 8px; 
-  font-weight: 700; 
-  line-height: 1.2; 
-} 
-
-.pod-desc { 
-  color: #e0eeee; 
-  font-size: .88rem; 
-  line-height: 1.5; 
-  margin: 0 0 18px; 
-} 
-
-.deliverables-pills { 
-  list-style: none; 
-  padding: 0; 
-  margin: 0 0 20px; 
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 8px; 
-  justify-content: center; 
-} 
-
-.deliverables-pills li { 
-  font-size: .7rem; 
-  font-weight: 700; 
-  color: #ffffff; 
-  background: rgba(185, 232, 214, 0.12); 
-  border: 1px solid rgba(185, 232, 214, 0.2); 
-  padding: 4px 10px; 
-  border-radius: 15px; 
-  letter-spacing: .02em; 
-} 
-
-.satellite-pod .service-link { 
-  font-size: .85rem; 
-  font-weight: 700; 
-  color: var(--mint); 
-  margin-top: auto; 
-} 
-
-/* Positioning satellites on the circular orbit */
-.pod-1 { top: 12%; left: 16%; } 
-.pod-2 { top: 12%; right: 16%; } 
-.pod-3 { bottom: 12%; left: 50%; transform: translateX(-50%); } 
-
-.pod-3:hover { transform: translateX(-50%) translateY(-8px) scale(1.02); }
-
-/* Orbit Rings */
-.orbit-ring { 
-  position: absolute; 
-  border-radius: 50%; 
-  border: 1.5px dashed rgba(185, 232, 214, 0.3); 
-} 
-
-.ring-inner { 
-  width: 500px; 
-  height: 500px; 
-} 
-
-.ring-outer { 
-  width: 680px; 
-  height: 680px; 
-} 
-
-@keyframes orbit-spin { 
-  from { transform: rotate(0deg); } 
-  to { transform: rotate(360deg); } 
-}
 
 
 /* ==========================================================================
-   14. MOBILE RESPONSIVE MEDIA QUERIES
+   14. MOBILE RESPONSIVE MEDIA QUERIES (COMPLETE SECTION)
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   .hero-message, 
@@ -1447,9 +1328,15 @@ h2 {
 
   .section-intro { grid-template-columns: 1fr; gap: 18px; } 
   .service-grid-new, 
-  .advantage-grid { grid-template-columns: 1fr; gap: 18px; } 
+  .advantage-grid,
+  .services-page-grid,
+  .starburst-grid { grid-template-columns: 1fr; gap: 20px; } 
 
-  .service-list-mini.expanded-two-col { grid-template-columns: 1fr; }
+  /* Reset Card 03 mobile full-width rule for stack */
+  .starburst-grid .pod-card-3 {
+    max-width: 100%;
+    margin: 0;
+  }
 
   .footer-main-redesign { grid-template-columns: 1fr; gap: 30px; } 
   .footer-bottom-redesign { flex-direction: column; gap: 10px; text-align: center; } 
