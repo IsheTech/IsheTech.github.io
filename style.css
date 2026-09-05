@@ -738,7 +738,7 @@ h2 {
    ========================================================================== */
 .dark-advantage-theme { 
   background: radial-gradient(circle at 15% 20%, #1c6876 0, transparent 35%), linear-gradient(135deg, var(--teal-dark) 0%, #051d25 100%); 
-  padding: 100px 0; 
+  padding: 90px 0 110px; 
   color: #ffffff; 
   position: relative; 
   overflow: hidden; 
@@ -764,7 +764,6 @@ h2 {
   margin-top: 30px; 
 } 
 
-/* Dark Glassmorphism Advantage Cards */
 .dark-glass-card { 
   background: rgba(255, 255, 255, 0.04) !important; 
   backdrop-filter: blur(16px); 
@@ -798,7 +797,6 @@ h2 {
   opacity: 0.9; 
 } 
 
-/* Dark Card Icon Wrapper */
 .dark-icon-wrap { 
   width: 48px; 
   height: 48px; 
@@ -825,29 +823,40 @@ h2 {
 
 
 /* ==========================================================================
-   11. CONTACT CALL-TO-ACTION BANNER
+   11. CONTACT CALL-TO-ACTION BANNER (FLOATING MINT CARD SEPARATOR)
    ========================================================================== */
-.contact { 
-  padding: 85px 0; 
-  background: var(--teal-dark); 
-  color: #fff; 
-  border-top: 1px solid rgba(255, 255, 255, 0.1); 
+.contact-section-wrap { 
+  padding: 60px 0 80px; 
+  background: var(--cream); 
 } 
 
-.contact-panel { 
+.contact-panel.mint-contact-card { 
+  background: var(--mint); 
+  color: var(--teal-dark); 
+  padding: 50px 48px; 
+  border-radius: 18px; 
   display: flex; 
   justify-content: space-between; 
-  align-items: end; 
+  align-items: center; 
   gap: 40px; 
+  box-shadow: 0 20px 40px rgba(8, 45, 57, 0.12); 
 } 
 
-.contact h2 { 
-  max-width: 680px; 
+.eyebrow-dark { 
+  color: var(--teal) !important; 
+  margin: 0 0 10px; 
 } 
 
-.contact p:not(.eyebrow) { 
-  color: #b6d0cf; 
-  margin: 18px 0 0; 
+.mint-contact-card h2 { 
+  color: var(--teal-dark); 
+  margin: 0; 
+  max-width: 620px; 
+} 
+
+.mint-contact-card p:not(.eyebrow) { 
+  color: #1a4a54; 
+  margin: 12px 0 0; 
+  font-size: 1.05rem; 
 }
 
 
@@ -1250,6 +1259,13 @@ h2 {
   .section-intro { grid-template-columns: 1fr; gap: 18px; } 
   .service-grid-new, 
   .advantage-grid { grid-template-columns: 1fr; gap: 18px; } 
+
+  .contact-panel.mint-contact-card { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding: 35px 28px; 
+    gap: 24px; 
+  }
 
   .footer-main { grid-template-columns: 1fr; padding: 40px 0; } 
   .footer-bottom { flex-direction: column; gap: 7px; } 
