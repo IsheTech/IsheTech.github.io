@@ -273,7 +273,7 @@ h1, h2, h3 {
   margin: 0; 
 } 
 
-.home h1, .home h2, .home h3, .brand, .page-hero h1, .page-hero h2, .page-hero h3, .service-list h2 { 
+.home h1, .home h2, .home h3, .brand, .page-hero h1, .page-hero h2, .page-hero h3 { 
   font-family: "Avenir Next", "Nunito Sans", "Trebuchet MS", sans-serif; 
 } 
 
@@ -363,7 +363,7 @@ h1 em {
 
 
 /* ==========================================================================
-   6. HERO CALL-TO-ACTION BUTTONS
+   6. GLOBAL BUTTON STYLES & FIXED HOVER CONTRAST
    ========================================================================== */
 .hero-actions { 
   display: flex; 
@@ -378,52 +378,54 @@ h1 em {
   display: inline-flex; 
   align-items: center; 
   justify-content: center; 
-  gap: 18px; 
+  gap: 12px; 
   min-height: 52px; 
   padding: 0 24px; 
   border-radius: 6px; 
   font-weight: 700; 
   font-size: .95rem; 
-  transition: .2s ease; 
+  transition: all 0.25s ease; 
+  cursor: pointer; 
+  text-decoration: none; 
 } 
 
 .button-primary { 
   background: var(--mint); 
-  color: var(--teal-dark); 
+  color: var(--teal-dark) !important; 
+  border: 1px solid var(--mint); 
 } 
 
 .button-primary:hover { 
-  background: #fff; 
+  background: #ffffff; 
+  color: var(--teal-dark) !important; 
+  border-color: #ffffff; 
   transform: translateY(-2px); 
+  box-shadow: 0 8px 20px rgba(185, 232, 214, 0.3); 
 } 
 
 .button-secondary { 
   border: 1px solid #85a9ac; 
-  color: #fff; 
+  color: #ffffff !important; 
+  background: transparent; 
 } 
 
 .button-secondary:hover { 
-  background: rgba(255, 255, 255, .1); 
+  background: rgba(255, 255, 255, .15); 
+  border-color: var(--mint); 
+  color: #ffffff !important; 
 } 
 
 .button-dark { 
   background: var(--teal); 
-  color: #fff; 
+  color: #ffffff !important; 
+  border: 1px solid var(--teal); 
 } 
 
 .button-dark:hover { 
   background: var(--teal-dark); 
+  color: var(--mint) !important; 
+  border-color: var(--mint); 
 } 
-
-.button-light { 
-  flex: none; 
-  background: #fff; 
-  color: var(--teal-dark); 
-} 
-
-.button-light:hover { 
-  background: var(--mint); 
-}
 
 
 /* ==========================================================================
@@ -550,13 +552,14 @@ h1 em {
 
 
 /* ==========================================================================
-   9. HOMEPAGE SERVICES SECTION (OPTIMIZED SHOOTING-STAR TRACE & REDRAW LOOP)
+   9. HOMEPAGE & SERVICES PAGE GLASS CARDS
    ========================================================================== */
 .section { 
   padding: 80px 0; 
 } 
 
-.section.services { 
+.section.services,
+.section.services-grid-section { 
   padding-top: 60px; 
   padding-bottom: 90px; 
   background: var(--cream);
@@ -587,10 +590,17 @@ h2 {
   gap: 24px; 
 } 
 
+/* 2x2 Services Page Grid Layout */
+.services-page-grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 30px; 
+} 
+
 /* Dark Glassmorphic Service Cards */
-.dark-service-card { 
+.service-card { 
   border-radius: 16px; 
-  padding: 34px 28px; 
+  padding: 36px 30px; 
   display: flex; 
   flex-direction: column; 
   justify-content: space-between; 
@@ -603,28 +613,28 @@ h2 {
 } 
 
 .service-card.card-shade-one { 
-  background: linear-gradient(180deg, rgba(8, 45, 57, 0.88) 0%, rgba(15, 66, 82, 0.92) 100%),
+  background: linear-gradient(180deg, rgba(8, 45, 57, 0.90) 0%, rgba(15, 66, 82, 0.94) 100%),
               url("https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
   border: 1px solid rgba(185, 232, 214, 0.3); 
   border-top: 4px solid var(--mint); 
 } 
 
 .service-card.card-shade-two { 
-  background: linear-gradient(180deg, rgba(15, 66, 82, 0.88) 0%, rgba(5, 35, 44, 0.92) 100%),
+  background: linear-gradient(180deg, rgba(15, 66, 82, 0.90) 0%, rgba(5, 35, 44, 0.94) 100%),
               url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
   border: 1px solid rgba(185, 232, 214, 0.3); 
   border-top: 4px solid #64bda5; 
 } 
 
 .service-card.card-shade-three { 
-  background: linear-gradient(180deg, rgba(5, 35, 44, 0.88) 0%, rgba(8, 45, 57, 0.92) 100%),
+  background: linear-gradient(180deg, rgba(5, 35, 44, 0.90) 0%, rgba(8, 45, 57, 0.94) 100%),
               url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
   border: 1px solid rgba(185, 232, 214, 0.3); 
   border-top: 4px solid #389ba3; 
 } 
 
-.dark-service-card:hover { 
-  transform: translateY(-10px); 
+.service-card:hover { 
+  transform: translateY(-8px); 
   border-color: var(--mint) !important; 
   box-shadow: 0 25px 50px rgba(8, 45, 57, 0.45), 0 0 0 1px var(--mint); 
 } 
@@ -648,7 +658,7 @@ h2 {
 } 
 
 .service-card h3 { 
-  font-size: 1.45rem; 
+  font-size: 1.55rem; 
   color: #ffffff !important; 
   margin-bottom: 12px; 
   font-weight: 700;
@@ -657,9 +667,9 @@ h2 {
 
 .service-card p { 
   color: #d5e4e3 !important; 
-  font-size: .95rem; 
+  font-size: .98rem; 
   line-height: 1.6; 
-  margin: 0 0 20px; 
+  margin: 0 0 22px; 
   text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 } 
 
@@ -668,17 +678,17 @@ h2 {
   padding: 0; 
   margin: 0 0 28px; 
   border-top: 1px dashed rgba(185, 232, 214, 0.25); 
-  padding-top: 16px; 
+  padding-top: 18px; 
 } 
 
 .service-list-mini li { 
-  font-size: .88rem; 
+  font-size: .9rem; 
   color: #ffffff !important; 
   font-weight: 500; 
-  margin-bottom: 8px; 
+  margin-bottom: 10px; 
   display: flex; 
   align-items: center; 
-  gap: 8px; 
+  gap: 10px; 
   text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 } 
 
@@ -688,23 +698,16 @@ h2 {
   font-size: .85rem; 
 } 
 
-.service-card .service-link { 
-  font-size: .92rem; 
-  font-weight: 700; 
-  color: var(--mint) !important; 
-  display: inline-flex; 
-  align-items: center; 
-  gap: 6px; 
-  transition: gap 0.2s ease, color 0.2s ease; 
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+.card-footer-action { 
+  margin-top: auto; 
+  padding-top: 10px; 
 } 
 
-.service-card:hover .service-link { 
-  color: #ffffff !important; 
-  gap: 12px; 
+.card-footer-action .button { 
+  width: 100%; 
 } 
 
-/* --- ICON WRAPPER & REFINED SHOOTING-STAR TIMING --- */
+/* --- ANIMATED SVG ICON WRAPPER & SHOOTING STAR LOOP --- */
 .service-icon-wrap { 
   width: 50px; 
   height: 50px; 
@@ -722,56 +725,22 @@ h2 {
   height: 26px; 
 } 
 
-/* Slower stroke movement (8.5s total) with shorter hidden pause */
 .animated-path {
   stroke-dasharray: 100 100;
   stroke-dashoffset: 0;
   animation: shooting-star-dash 8.5s ease-in-out infinite;
 }
 
-.card-shade-one .animated-path {
-  animation-delay: 0s;
-}
-
-.card-shade-two .animated-path {
-  animation-delay: 2.8s;
-}
-
-.card-shade-three .animated-path {
-  animation-delay: 5.6s;
-}
+.card-shade-one .animated-path { animation-delay: 0s; }
+.card-shade-two .animated-path { animation-delay: 2.8s; }
+.card-shade-three .animated-path { animation-delay: 5.6s; }
 
 @keyframes shooting-star-dash {
-  0% {
-    stroke-dasharray: 100 0;
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-  35% {
-    stroke-dasharray: 30 70;
-    stroke-dashoffset: -50;
-    opacity: 0.9;
-  }
-  48% {
-    stroke-dasharray: 0 100;
-    stroke-dashoffset: -100;
-    opacity: 0;
-  }
-  53% {
-    stroke-dasharray: 0 100;
-    stroke-dashoffset: -100;
-    opacity: 0;
-  }
-  72% {
-    stroke-dasharray: 30 70;
-    stroke-dashoffset: -150;
-    opacity: 0.9;
-  }
-  100% {
-    stroke-dasharray: 100 0;
-    stroke-dashoffset: -200;
-    opacity: 1;
-  }
+  0% { stroke-dasharray: 100 0; stroke-dashoffset: 0; opacity: 1; }
+  35% { stroke-dasharray: 30 70; stroke-dashoffset: -50; opacity: 0.9; }
+  48%, 53% { stroke-dasharray: 0 100; stroke-dashoffset: -100; opacity: 0; }
+  72% { stroke-dasharray: 30 70; stroke-dashoffset: -150; opacity: 0.9; }
+  100% { stroke-dasharray: 100 0; stroke-dashoffset: -200; opacity: 1; }
 }
 
 
@@ -1083,7 +1052,7 @@ h2 {
 
 
 /* ==========================================================================
-   13. SUB-PAGES (ABOUT, SERVICES LIST, CONTACT FORM, TEAM)
+   13. SUB-PAGES (ABOUT, PAGE HERO, CONTACT FORM)
    ========================================================================== */
 .inner-header { 
   position: relative; 
@@ -1129,47 +1098,6 @@ h2 {
   max-width: 640px; 
   font-size: 1.08rem; 
   margin: 25px 0 0; 
-} 
-
-.service-list article { 
-  display: grid; 
-  grid-template-columns: 70px 1fr auto; 
-  gap: 26px; 
-  padding: 45px 0; 
-  border-top: 1px solid var(--line); 
-  align-items: start; 
-} 
-
-.service-list article:last-child { 
-  border-bottom: 1px solid var(--line); 
-} 
-
-.service-list article > span { 
-  color: #5d948a; 
-  font: 700 .85rem "Space Grotesk"; 
-} 
-
-.service-list h2 { 
-  font-size: clamp(1.8rem, 3vw, 2.7rem); 
-} 
-
-.service-list p { 
-  color: var(--muted); 
-  max-width: 660px; 
-} 
-
-.service-list ul { 
-  padding-left: 19px; 
-  color: var(--muted); 
-  font-size: .9rem; 
-} 
-
-.service-list a { 
-  font-weight: 700; 
-  color: var(--teal); 
-  font-size: .84rem; 
-  white-space: nowrap; 
-  margin-top: 10px; 
 } 
 
 .contact-grid { 
@@ -1233,7 +1161,7 @@ h2 {
 
 
 /* ==========================================================================
-   14. MOBILE RESPONSIVE MEDIA QUERIES (SCREEN ADJUSTMENTS)
+   14. MOBILE RESPONSIVE MEDIA QUERIES
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   .hero-message, 
@@ -1242,8 +1170,7 @@ h2 {
   .hero-restored .card-dot, 
   .hero-restored .status-pulse,
   .service-svg,
-  .animated-path,
-  .animated-path-cloud { 
+  .animated-path { 
     animation: none; 
   }
 }
@@ -1332,7 +1259,8 @@ h2 {
 
   .section-intro { grid-template-columns: 1fr; gap: 18px; } 
   .service-grid-new, 
-  .advantage-grid { grid-template-columns: 1fr; gap: 18px; } 
+  .advantage-grid,
+  .services-page-grid { grid-template-columns: 1fr; gap: 20px; } 
 
   .footer-main-redesign { grid-template-columns: 1fr; gap: 30px; } 
   .footer-bottom-redesign { flex-direction: column; gap: 10px; text-align: center; } 
@@ -1340,9 +1268,7 @@ h2 {
   .page-hero { min-height: 365px; padding: 135px 0 80px; } 
   .page-hero:after { height: 42px; } 
 
-  .service-list article, 
   .contact-grid { grid-template-columns: 1fr; gap: 12px; } 
-  .service-list article { padding: 32px 0; } 
 
   .chat-button b { display: none; } 
   .chat-button { width: 50px; height: 50px; padding: 0; border-radius: 50%; } 

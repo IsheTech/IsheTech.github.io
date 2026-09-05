@@ -1,42 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- ==========================================================================
-       META TAGS, PAGE TITLE & EXTERNAL FONTS / STYLESHEET
-       ========================================================================== -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Comprehensive IT support, cloud solutions, infrastructure setups, and cybersecurity services from IsheTech Systems.">
   <title>Our Services | IsheTech Systems</title>
   
-  <!-- Google Web Fonts: DM Sans & Nunito Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Main Stylesheet (style.css) -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="inner-page">
 
-  <!-- Accessibility Skip Link for Keyboard Navigation -->
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ==========================================================================
-       SITE HEADER & TOP NAVIGATION (POPULATED DYNAMICALLY VIA SCRIPT.JS)
-       ========================================================================== -->
+  <!-- SITE HEADER (DYNAMICALLY POPULATED) -->
   <header class="site-header inner-header">
     <div class="container nav-wrap"></div>
   </header>
 
-  <!-- ==========================================================================
-       MAIN PAGE CONTENT CONTAINER
-       ========================================================================== -->
   <main id="main">
 
-    <!-- ==========================================================================
-         PAGE HERO SECTION
-         ========================================================================== -->
+    <!-- PAGE HERO -->
     <section class="page-hero">
       <div class="container">
         <p class="eyebrow eyebrow-light">Practical Solutions</p>
@@ -45,97 +32,121 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         DETAILED SERVICES LIST SECTION
-         ========================================================================== -->
-    <section class="section service-list-section">
-      <div class="container service-list">
+    <!-- 2x2 GLASSMORPHIC SERVICES GRID -->
+    <section class="section services-grid-section">
+      <div class="container">
+        
+        <div class="services-page-grid">
 
-        <!-- Module 01: IT Support & Helpdesk -->
-        <article id="support" class="service-detail-card card-shade-one">
-          <span class="detail-number">01</span>
-          <div class="detail-content">
-            <h2>IT Support &amp; Helpdesk</h2>
+          <!-- Card 01: IT Support & Helpdesk -->
+          <article id="support" class="service-card card-shade-one">
+            <div class="service-card-header">
+              <span class="service-tag">01 • Helpdesk</span>
+              <div class="service-icon-wrap">
+                <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path pathLength="100" class="animated-path" d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                  <path pathLength="100" class="animated-path" d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                  <circle pathLength="100" class="animated-path" cx="12" cy="13" r="1" fill="currentColor"></circle>
+                </svg>
+              </div>
+            </div>
+            <h3>IT Support &amp; Helpdesk</h3>
             <p>Empower your workforce with responsive, friendly technical assistance. We eliminate downtime by resolving everyday hardware, software, and user access issues quickly.</p>
-            <ul>
-              <li>Remote &amp; On-Site Troubleshooting</li>
-              <li>User Account Provisioning &amp; Password Management</li>
-              <li>Workstation Maintenance &amp; Speed Optimization</li>
-              <li>Emergency Outage Assistance</li>
+            <ul class="service-list-mini">
+              <li><span>✓</span> Remote &amp; On-Site Troubleshooting</li>
+              <li><span>✓</span> User Account Provisioning &amp; Onboarding</li>
+              <li><span>✓</span> Workstation Maintenance &amp; Optimization</li>
+              <li><span>✓</span> Emergency Outage &amp; Hardware Repairs</li>
             </ul>
-          </div>
-          <div class="detail-action">
-            <a class="button button-dark" href="contact.html">Request Helpdesk <span>→</span></a>
-          </div>
-        </article>
+            <div class="card-footer-action">
+              <a class="button button-primary" href="contact.html">Request IT Support <span>→</span></a>
+            </div>
+          </article>
 
-        <!-- Module 02: Cloud & Systems -->
-        <article id="cloud" class="service-detail-card card-shade-two">
-          <span class="detail-number">02</span>
-          <div class="detail-content">
-            <h2>Cloud &amp; Systems Integration</h2>
-            <p>Migrate your operational tools, files, and email platforms to secure cloud environments that enable secure remote work and effortless team collaboration.</p>
-            <ul>
-              <li>Microsoft 365 &amp; Google Workspace Setup &amp; Administration</li>
-              <li>Cloud Email, SharePoint &amp; Drive Migrations</li>
-              <li>Automated Data Backup &amp; Disaster Recovery Systems</li>
-              <li>SaaS Application &amp; License Optimization</li>
+          <!-- Card 02: Cloud & Systems -->
+          <article id="cloud" class="service-card card-shade-two">
+            <div class="service-card-header">
+              <span class="service-tag">02 • Cloud &amp; Web</span>
+              <div class="service-icon-wrap">
+                <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path pathLength="100" class="animated-path" d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                  <polyline pathLength="100" class="animated-path" points="12 13 12 9 10 11"></polyline>
+                  <polyline pathLength="100" class="animated-path" points="12 9 14 11"></polyline>
+                </svg>
+              </div>
+            </div>
+            <h3>Cloud &amp; Systems Integration</h3>
+            <p>Migrate your operational tools, files, and email platforms to secure cloud environments that enable flexible remote work and effortless team collaboration.</p>
+            <ul class="service-list-mini">
+              <li><span>✓</span> Microsoft 365 &amp; Google Workspace Admin</li>
+              <li><span>✓</span> Cloud Email, SharePoint &amp; Drive Migrations</li>
+              <li><span>✓</span> Automated Data Backup &amp; Recovery</li>
+              <li><span>✓</span> SaaS License &amp; Software Management</li>
             </ul>
-          </div>
-          <div class="detail-action">
-            <a class="button button-dark" href="contact.html">Migrate To Cloud <span>→</span></a>
-          </div>
-        </article>
+            <div class="card-footer-action">
+              <a class="button button-primary" href="contact.html">Migrate To Cloud <span>→</span></a>
+            </div>
+          </article>
 
-        <!-- Module 03: IT Setup & Hardware -->
-        <article id="infrastructure" class="service-detail-card card-shade-three">
-          <span class="detail-number">03</span>
-          <div class="detail-content">
-            <h2>IT Setup &amp; Hardware Infrastructure</h2>
-            <p>From physical cable patching in server racks to configuring enterprise Wi-Fi routers and firewalls, we build bulletproof physical networks tailored for performance.</p>
-            <ul>
-              <li>Server Rack Cabling, Patching &amp; Management</li>
-              <li>High-Speed Office Wi-Fi Deployment &amp; Coverage Tuning</li>
-              <li>Router, Switch &amp; Firewall Configurations</li>
-              <li>Workstation, Laptop &amp; Peripheral Procurement</li>
+          <!-- Card 03: Infrastructure & Hardware -->
+          <article id="infrastructure" class="service-card card-shade-three">
+            <div class="service-card-header">
+              <span class="service-tag">03 • Infrastructure</span>
+              <div class="service-icon-wrap">
+                <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect pathLength="100" class="animated-path" x="2" y="14" width="20" height="8" rx="2"></rect>
+                  <path pathLength="100" class="animated-path" d="M6 18h.01M10 18h.01"></path>
+                  <path pathLength="100" class="animated-path" d="M12 10a5 5 0 0 1 5 5M12 6a9 9 0 0 1 9 9M12 2a13 13 0 0 1 13 13"></path>
+                </svg>
+              </div>
+            </div>
+            <h3>IT Setup &amp; Network Gear</h3>
+            <p>From physical cable patching in server racks to configuring enterprise Wi-Fi routers and switches, we build bulletproof physical network setups.</p>
+            <ul class="service-list-mini">
+              <li><span>✓</span> Server Rack Cabling &amp; Patch Panel Setup</li>
+              <li><span>✓</span> Office Wi-Fi Deployment &amp; Speed Tuning</li>
+              <li><span>✓</span> Router, Switch &amp; Network Configuration</li>
+              <li><span>✓</span> Printers &amp; Office IT Procurement</li>
             </ul>
-          </div>
-          <div class="detail-action">
-            <a class="button button-dark" href="contact.html">Book Infrastructure <span>→</span></a>
-          </div>
-        </article>
+            <div class="card-footer-action">
+              <a class="button button-primary" href="contact.html">Book Infrastructure <span>→</span></a>
+            </div>
+          </article>
 
-        <!-- Module 04: Cybersecurity & WiFi -->
-        <article id="security" class="service-detail-card card-shade-one">
-          <span class="detail-number">04</span>
-          <div class="detail-content">
-            <h2>Cybersecurity &amp; Network Defense</h2>
-            <p>Protect your critical business communications and client data with multi-layered defensive security solutions, threat monitoring, and vulnerability assessments.</p>
-            <ul>
-              <li>Endpoint Anti-Virus &amp; Ransomware Protection</li>
-              <li>Network Access Control &amp; Secure Guest Wi-Fi</li>
-              <li>Security Awareness Training for Employees</li>
-              <li>Routine System Audits &amp; Patch Management</li>
+          <!-- Card 04: Cybersecurity & WiFi -->
+          <article id="security" class="service-card card-shade-one">
+            <div class="service-card-header">
+              <span class="service-tag">04 • Cybersecurity</span>
+              <div class="service-icon-wrap">
+                <svg class="service-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path pathLength="100" class="animated-path" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+            </div>
+            <h3>Cybersecurity &amp; Network Defense</h3>
+            <p>Protect your business communications, network endpoints, and client data with active defensive security monitoring, firewalls, and vulnerability patches.</p>
+            <ul class="service-list-mini">
+              <li><span>✓</span> Endpoint Anti-Virus &amp; Ransomware Defense</li>
+              <li><span>✓</span> Firewall Protection &amp; Secure Guest Wi-Fi</li>
+              <li><span>✓</span> Security Awareness Training for Staff</li>
+              <li><span>✓</span> System Vulnerability Audits &amp; Patching</li>
             </ul>
-          </div>
-          <div class="detail-action">
-            <a class="button button-dark" href="contact.html">Secure Your Network <span>→</span></a>
-          </div>
-        </article>
+            <div class="card-footer-action">
+              <a class="button button-primary" href="contact.html">Secure Your IT <span>→</span></a>
+            </div>
+          </article>
+
+        </div>
 
       </div>
     </section>
 
   </main>
 
-  <!-- ==========================================================================
-       SITE FOOTER (POPULATED DYNAMICALLY VIA SCRIPT.JS)
-       ========================================================================== -->
+  <!-- SITE FOOTER (DYNAMICALLY POPULATED) -->
   <footer class="site-footer"></footer>
 
-  <!-- ==========================================================================
-       FLOATING QUICK CHAT WIDGET & JAVASCRIPT LOGIC
-       ========================================================================== -->
+  <!-- CHAT WIDGET -->
   <button class="chat-button" type="button" aria-label="Open quick chat" title="Quick chat">
     <span>✦</span><b>Chat</b>
   </button>
