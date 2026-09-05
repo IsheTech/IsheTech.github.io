@@ -38,17 +38,16 @@
         
         <div class="contact-grid">
           
-          <!-- Left Panel: Direct Channels & SLA -->
+          <!-- Left Panel: Talk to us & SLA -->
           <div class="contact-info-panel">
             <div>
-              <p class="eyebrow" style="margin-bottom: 6px;">Direct Channels</p>
+              <p class="eyebrow" style="margin-bottom: 6px;">Talk to us</p>
               <h2 style="margin-top: 0; line-height: 1.15;">We're here when tech challenges arise.</h2>
               <p style="margin-top: 10px;">Reach out directly or send us an inquiry. We respond to all standard requests within 2 business hours and maintain rapid dispatch for emergency outages.</p>
 
               <div class="contact-details">
                 <p><b>General Inquiries:</b> <a href="mailto:info@ishetech.com">info@ishetech.com</a></p>
-                <p><b>Technical Support:</b> <a href="mailto:support@ishetech.com">support@ishetech.com</a></p>
-                <p><b>Direct Phone:</b> <a href="tel:+18005550199">+1 (800) 555-0199</a></p>
+                <p><b>Direct Phone:</b> <a href="tel:+31619193177">+31 6 1919 3177</a></p>
                 <p><b>Operating Hours:</b> Mon – Fri: 8:00 AM – 6:00 PM (24/7 Emergency Dispatch)</p>
               </div>
             </div>
@@ -65,7 +64,8 @@
                 </div>
               </div>
               <h3>Need Immediate Help?</h3>
-              <p>If you are experiencing a critical network or server outage, mention "Emergency" in your message for immediate technician escalation.</p>
+              <p>For urgent technical issues, please contact us directly at:</p>
+              <p style="margin-top: 8px; margin-bottom: 0;"><b>Technical Support:</b> <a href="mailto:support@ishetech.nl" class="mint-link">support@ishetech.nl</a></p>
             </div>
           </div>
 
@@ -92,13 +92,14 @@
               </div>
 
               <div class="form-group">
-                <label for="work-email">Work Email *</label>
+                <label for="work-email">Email *</label>
                 <input type="email" id="work-email" name="email" autocomplete="email" placeholder="alex@company.com" required>
               </div>
 
               <div class="form-group">
                 <label for="service-interest">Primary Service Required</label>
-                <select id="service-interest" name="service" autocomplete="off">
+                <select id="service-interest" name="service" required>
+                  <option value="" disabled selected hidden>-- Select a service --</option>
                   <option value="helpdesk">IT Support &amp; Everyday Helpdesk</option>
                   <option value="cloud">Cloud Migration &amp; Systems</option>
                   <option value="hardware">IT Setup &amp; Hardware Infrastructure</option>
@@ -142,11 +143,9 @@
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Display in-page success alert
       var successMsg = document.getElementById('form-success-msg');
       successMsg.style.display = 'block';
       
-      // Reset form fields
       this.reset();
     });
   </script>

@@ -1183,7 +1183,6 @@ h2 {
   margin: 18px 0 0; 
 } 
 
-/* Reduced Top Gap by 50% & Vertical Base Alignment */
 .contact-section {
   padding-top: 35px !important;
   padding-bottom: 80px;
@@ -1256,14 +1255,15 @@ h2 {
   transition: border-color 0.25s ease, background 0.25s ease;
 } 
 
-/* Browser Autofill Styling Overrides */
+/* Browser Autofill Fix: Keeps text white and input transparent dark glass */
 .form-group input:-webkit-autofill,
 .form-group input:-webkit-autofill:hover,
 .form-group input:-webkit-autofill:focus,
 .form-group select:-webkit-autofill,
 .form-group textarea:-webkit-autofill {
   -webkit-text-fill-color: #ffffff !important;
-  -webkit-box-shadow: 0 0 0px 1000px #09323e inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #082d39 inset !important;
+  box-shadow: 0 0 0px 1000px #082d39 inset !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 
