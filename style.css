@@ -550,7 +550,7 @@ h1 em {
 
 
 /* ==========================================================================
-   9. HOMEPAGE SERVICES SECTION (HIGH CONTRAST DARK GLASS CARDS & ANIMATED ICONS)
+   9. HOMEPAGE SERVICES SECTION (DARK TRANSPARENT GLASS CARDS WITH BACKDROP PHOTOS)
    ========================================================================== */
 .section { 
   padding: 80px 0; 
@@ -587,22 +587,21 @@ h2 {
   gap: 24px; 
 } 
 
-/* High-Contrast Service Card Base Styling */
-.service-card { 
+/* Dark Transparent Glassmorphism Service Cards */
+.dark-service-card { 
   border-radius: 16px; 
   padding: 34px 28px; 
   display: flex; 
   flex-direction: column; 
   justify-content: space-between; 
-  position: relative; 
-  overflow: hidden; 
-  backdrop-filter: blur(16px); 
-  -webkit-backdrop-filter: blur(16px); 
-  box-shadow: 0 12px 30px rgba(5, 29, 37, 0.3); 
+  color: #ffffff !important; 
+  backdrop-filter: blur(14px); 
+  -webkit-backdrop-filter: blur(14px); 
+  box-shadow: 0 12px 30px rgba(5, 29, 37, 0.25); 
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; 
 } 
 
-/* Card 01: IT Helpdesk backdrop photo & dark glass gradient */
+/* Card 01: IT Helpdesk backdrop photo */
 .service-card.card-shade-one { 
   background: linear-gradient(180deg, rgba(8, 45, 57, 0.88) 0%, rgba(15, 66, 82, 0.92) 100%),
               url("https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
@@ -610,7 +609,7 @@ h2 {
   border-top: 4px solid var(--mint); 
 } 
 
-/* Card 02: Cloud Solutions backdrop photo & dark glass gradient */
+/* Card 02: Cloud Solutions backdrop photo */
 .service-card.card-shade-two { 
   background: linear-gradient(180deg, rgba(15, 66, 82, 0.88) 0%, rgba(5, 35, 44, 0.92) 100%),
               url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
@@ -618,7 +617,7 @@ h2 {
   border-top: 4px solid #64bda5; 
 } 
 
-/* Card 03: Infrastructure backdrop photo & dark glass gradient */
+/* Card 03: Infrastructure backdrop photo */
 .service-card.card-shade-three { 
   background: linear-gradient(180deg, rgba(5, 35, 44, 0.88) 0%, rgba(8, 45, 57, 0.92) 100%),
               url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
@@ -626,7 +625,7 @@ h2 {
   border-top: 4px solid #389ba3; 
 } 
 
-.service-card:hover { 
+.dark-service-card:hover { 
   transform: translateY(-10px); 
   border-color: var(--mint) !important; 
   box-shadow: 0 25px 50px rgba(8, 45, 57, 0.45), 0 0 0 1px var(--mint); 
@@ -650,15 +649,86 @@ h2 {
   letter-spacing: .05em; 
 } 
 
-/* Headings & Text - Explicit High-Contrast Whites & Mints */
-.service-card h3 { 
+.service-icon-wrap { 
+  width: 50px; 
+  height: 50px; 
+  display: grid; 
+  place-items: center; 
+  background: rgba(185, 232, 214, 0.15); 
+  border-radius: 12px; 
+  color: var(--mint); 
+  border: 1px solid rgba(185, 232, 214, 0.3); 
+  backdrop-filter: blur(8px); 
+} 
+
+.service-svg { 
+  width: 26px; 
+  height: 26px; 
+} 
+
+/* --- RESTORED EXACT LINE TRACE & DISAPPEAR/REDRAW ANIMATIONS FROM VIDEO --- */
+.animated-path, 
+.animated-path-cloud {
+  stroke-dasharray: 140;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: line-trace-draw-loop 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes line-trace-draw-loop {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  38% {
+    stroke-dashoffset: 140;
+    opacity: 0.15;
+    transform: scale(0.88) rotate(120deg);
+  }
+  50% {
+    stroke-dashoffset: 280;
+    opacity: 0;
+    transform: scale(0.8) rotate(180deg);
+  }
+  62% {
+    stroke-dashoffset: 140;
+    opacity: 0.4;
+    transform: scale(0.9) rotate(240deg);
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.icon-pulse .service-svg { 
+  animation: icon-headset-rotate 5.5s ease-in-out infinite; 
+} 
+
+.icon-shooting-star .service-svg { 
+  animation: icon-cloud-rotate 5.5s ease-in-out infinite; 
+} 
+
+@keyframes icon-headset-rotate { 
+  0%, 100% { transform: scale(1); } 
+  50% { transform: scale(1.1) rotate(6deg); color: #ffffff; } 
+} 
+
+@keyframes icon-cloud-rotate { 
+  0%, 100% { transform: scale(1); } 
+  50% { transform: scale(1.08) rotate(-6deg); } 
+} 
+
+.dark-service-card h3 { 
   font-size: 1.45rem; 
   color: #ffffff !important; 
   margin-bottom: 12px; 
   font-weight: 700;
 } 
 
-.service-card p { 
+.dark-service-card p { 
   color: #d5e4e3 !important; 
   font-size: .95rem; 
   line-height: 1.6; 
@@ -689,7 +759,7 @@ h2 {
   font-size: .85rem; 
 } 
 
-.service-link { 
+.dark-service-card .service-link { 
   font-size: .92rem; 
   font-weight: 700; 
   color: var(--mint) !important; 
@@ -699,69 +769,9 @@ h2 {
   transition: gap 0.2s ease, color 0.2s ease; 
 } 
 
-.service-card:hover .service-link { 
+.dark-service-card:hover .service-link { 
   color: #ffffff !important; 
   gap: 12px; 
-} 
-
-/* Icon Animation Enhancements */
-.service-icon-wrap { 
-  width: 50px; 
-  height: 50px; 
-  display: grid; 
-  place-items: center; 
-  background: rgba(185, 232, 214, 0.15); 
-  border-radius: 12px; 
-  color: var(--mint); 
-  border: 1px solid rgba(185, 232, 214, 0.3); 
-  backdrop-filter: blur(8px); 
-} 
-
-.service-svg { 
-  width: 26px; 
-  height: 26px; 
-} 
-
-.animated-path {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 0;
-  animation: line-stroke-draw 6s ease-in-out infinite;
-}
-
-.animated-path-cloud {
-  stroke-dasharray: 120;
-  stroke-dashoffset: 0;
-  animation: shooting-cloud-draw 8s ease-in-out infinite;
-}
-
-@keyframes line-stroke-draw {
-  0% { stroke-dashoffset: 100; opacity: 0.3; }
-  50% { stroke-dashoffset: 0; opacity: 1; }
-  100% { stroke-dashoffset: -100; opacity: 0.3; }
-}
-
-@keyframes shooting-cloud-draw {
-  0% { stroke-dashoffset: 120; transform: scale(1); opacity: 0.4; }
-  40% { stroke-dashoffset: 0; transform: scale(1.06); opacity: 1; }
-  80%, 100% { stroke-dashoffset: -120; transform: scale(1); opacity: 0.4; }
-}
-
-.icon-pulse .service-svg { 
-  animation: headset-pulse 3.5s ease-in-out infinite; 
-} 
-
-.icon-shooting-star .service-svg { 
-  animation: shooting-star-float 5s ease-in-out infinite; 
-} 
-
-@keyframes headset-pulse { 
-  0%, 100% { transform: scale(1); color: var(--mint); } 
-  50% { transform: scale(1.15); color: #ffffff; } 
-} 
-
-@keyframes shooting-star-float { 
-  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 1; } 
-  50% { transform: translateY(-7px) rotate(4deg); opacity: 0.85; } 
 }
 
 
