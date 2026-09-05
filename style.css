@@ -734,15 +734,17 @@ h2 {
 
 
 /* ==========================================================================
-   10. WHY ISHETECH / DARK GLASSMORPHIC ADVANTAGE GRID
+   10. WHY ISHETECH / FADED TECH PHOTO OVERLAY & GLASS CARDS
    ========================================================================== */
 .dark-advantage-theme { 
-  background: radial-gradient(circle at 15% 20%, #1c6876 0, transparent 35%), linear-gradient(135deg, var(--teal-dark) 0%, #051d25 100%); 
-  padding: 90px 0 110px; 
+  background: linear-gradient(135deg, rgba(8, 45, 57, 0.92) 0%, rgba(5, 29, 37, 0.95) 100%),
+              url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat; 
+  padding: 100px 0 110px; 
   color: #ffffff; 
   position: relative; 
   overflow: hidden; 
-  border-top: 1px solid rgba(185, 232, 214, 0.15); 
+  border-top: 1px solid rgba(185, 232, 214, 0.2); 
+  border-bottom: 1px solid rgba(185, 232, 214, 0.15); 
 } 
 
 .eyebrow-light { 
@@ -764,22 +766,24 @@ h2 {
   margin-top: 30px; 
 } 
 
+/* Dark Glassmorphism Advantage Cards over Faded Background */
 .dark-glass-card { 
-  background: rgba(255, 255, 255, 0.04) !important; 
-  backdrop-filter: blur(16px); 
-  border: 1px solid rgba(255, 255, 255, 0.12) !important; 
+  background: rgba(8, 45, 57, 0.68) !important; 
+  backdrop-filter: blur(14px); 
+  -webkit-backdrop-filter: blur(14px); 
+  border: 1px solid rgba(185, 232, 214, 0.2) !important; 
   border-left: 4px solid var(--mint) !important; 
   border-radius: 14px; 
   padding: 35px 30px; 
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); 
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease; 
 } 
 
 .dark-glass-card:hover { 
   transform: translateY(-8px); 
-  background: rgba(255, 255, 255, 0.08) !important; 
+  background: rgba(15, 66, 82, 0.88) !important; 
   border-color: var(--mint) !important; 
-  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--mint); 
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45), 0 0 0 1px var(--mint); 
 } 
 
 .adv-header { 
@@ -823,45 +827,7 @@ h2 {
 
 
 /* ==========================================================================
-   11. CONTACT CALL-TO-ACTION BANNER (FLOATING MINT CARD SEPARATOR)
-   ========================================================================== */
-.contact-section-wrap { 
-  padding: 60px 0 80px; 
-  background: var(--cream); 
-} 
-
-.contact-panel.mint-contact-card { 
-  background: var(--mint); 
-  color: var(--teal-dark); 
-  padding: 50px 48px; 
-  border-radius: 18px; 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  gap: 40px; 
-  box-shadow: 0 20px 40px rgba(8, 45, 57, 0.12); 
-} 
-
-.eyebrow-dark { 
-  color: var(--teal) !important; 
-  margin: 0 0 10px; 
-} 
-
-.mint-contact-card h2 { 
-  color: var(--teal-dark); 
-  margin: 0; 
-  max-width: 620px; 
-} 
-
-.mint-contact-card p:not(.eyebrow) { 
-  color: #1a4a54; 
-  margin: 12px 0 0; 
-  font-size: 1.05rem; 
-}
-
-
-/* ==========================================================================
-   12. SITE FOOTER STYLES
+   11. SITE FOOTER STYLES
    ========================================================================== */
 .site-footer { 
   background: var(--teal-dark); 
@@ -930,7 +896,7 @@ h2 {
 
 
 /* ==========================================================================
-   13. FLOATING CHAT WIDGET
+   12. FLOATING CHAT WIDGET
    ========================================================================== */
 .chat-button { 
   position: fixed; 
@@ -1011,7 +977,7 @@ h2 {
 
 
 /* ==========================================================================
-   14. SUB-PAGES (ABOUT, SERVICES LIST, CONTACT FORM, TEAM)
+   13. SUB-PAGES (ABOUT, SERVICES LIST, CONTACT FORM, TEAM)
    ========================================================================== */
 .inner-header { 
   position: relative; 
@@ -1161,7 +1127,7 @@ h2 {
 
 
 /* ==========================================================================
-   15. MOBILE RESPONSIVE MEDIA QUERIES (SCREEN ADJUSTMENTS)
+   14. MOBILE RESPONSIVE MEDIA QUERIES (SCREEN ADJUSTMENTS)
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   .hero-message, 
@@ -1259,13 +1225,6 @@ h2 {
   .section-intro { grid-template-columns: 1fr; gap: 18px; } 
   .service-grid-new, 
   .advantage-grid { grid-template-columns: 1fr; gap: 18px; } 
-
-  .contact-panel.mint-contact-card { 
-    flex-direction: column; 
-    align-items: flex-start; 
-    padding: 35px 28px; 
-    gap: 24px; 
-  }
 
   .footer-main { grid-template-columns: 1fr; padding: 40px 0; } 
   .footer-bottom { flex-direction: column; gap: 7px; } 
