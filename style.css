@@ -317,7 +317,7 @@ h1 em {
   50%, 100% { opacity: 0; transform: translateX(65px); } 
 }
 
-/* --- HERO AUDIENCE SCALE PILLS (INTEGRATED DIRECTLY BELOW BUTTONS) --- */
+/* --- HERO AUDIENCE SCALE PILLS --- */
 .hero-audience { 
   margin-top: 32px; 
   position: relative; 
@@ -556,8 +556,9 @@ h1 em {
 } 
 
 .section.services { 
-  padding-top: 50px; 
-  padding-bottom: 70px; 
+  padding-top: 60px; 
+  padding-bottom: 90px; 
+  background: var(--cream);
 } 
 
 .section-intro { 
@@ -597,17 +598,17 @@ h2 {
 } 
 
 .service-card.card-shade-one { 
-  background: #f8fbf9; 
+  background: #ffffff; 
   border-top: 4px solid var(--teal); 
 } 
 
 .service-card.card-shade-two { 
-  background: #f1f8f5; 
+  background: #f8fcf9; 
   border-top: 4px solid #23727b; 
 } 
 
 .service-card.card-shade-three { 
-  background: #ebf4f2; 
+  background: #f1f8f5; 
   border-top: 4px solid #389ba3; 
 } 
 
@@ -733,52 +734,53 @@ h2 {
 
 
 /* ==========================================================================
-   10. WHY ISHETECH / 4-PILLAR ADVANTAGE GRID (MERGED TRUST BLOCK)
+   10. WHY ISHETECH / DARK GLASSMORPHIC ADVANTAGE GRID
    ========================================================================== */
-.advantage-section { 
-  background: #eef4f1; 
-  padding: 90px 0; 
+.dark-advantage-theme { 
+  background: radial-gradient(circle at 15% 20%, #1c6876 0, transparent 35%), linear-gradient(135deg, var(--teal-dark) 0%, #051d25 100%); 
+  padding: 100px 0; 
+  color: #ffffff; 
+  position: relative; 
+  overflow: hidden; 
+  border-top: 1px solid rgba(185, 232, 214, 0.15); 
+} 
+
+.eyebrow-light { 
+  color: var(--mint) !important; 
+} 
+
+.title-light { 
+  color: #ffffff !important; 
+} 
+
+.text-light { 
+  color: #d5e4e3 !important; 
 } 
 
 .advantage-grid { 
   display: grid; 
   grid-template-columns: repeat(2, 1fr); 
   gap: 24px; 
-  margin-top: 20px; 
+  margin-top: 30px; 
 } 
 
-.advantage-card { 
+/* Dark Glassmorphism Advantage Cards */
+.dark-glass-card { 
+  background: rgba(255, 255, 255, 0.04) !important; 
+  backdrop-filter: blur(16px); 
+  border: 1px solid rgba(255, 255, 255, 0.12) !important; 
+  border-left: 4px solid var(--mint) !important; 
   border-radius: 14px; 
   padding: 35px 30px; 
-  border: 1px solid var(--line); 
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); 
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease; 
 } 
 
-.adv-shade-one { 
-  background: #ffffff; 
-  border-left: 5px solid var(--teal); 
-} 
-
-.adv-shade-two { 
-  background: #f8fcf9; 
-  border-left: 5px solid #23727b; 
-} 
-
-.adv-shade-three { 
-  background: #f3f9f6; 
-  border-left: 5px solid #389ba3; 
-} 
-
-.adv-shade-four { 
-  background: #edf6f3; 
-  border-left: 5px solid #64bda5; 
-} 
-
-.advantage-card:hover { 
+.dark-glass-card:hover { 
   transform: translateY(-8px); 
-  border-color: var(--mint); 
-  box-shadow: 0 20px 40px rgba(8, 45, 57, 0.12); 
+  background: rgba(255, 255, 255, 0.08) !important; 
+  border-color: var(--mint) !important; 
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--mint); 
 } 
 
 .adv-header { 
@@ -790,20 +792,32 @@ h2 {
 
 .adv-number { 
   font-family: "Space Grotesk", sans-serif; 
-  font-size: 1.5rem; 
+  font-size: 1.6rem; 
   font-weight: 800; 
-  color: var(--teal); 
-  opacity: 0.6; 
+  color: var(--mint); 
+  opacity: 0.9; 
 } 
 
-.advantage-card h3 { 
+/* Dark Card Icon Wrapper */
+.dark-icon-wrap { 
+  width: 48px; 
+  height: 48px; 
+  display: grid; 
+  place-items: center; 
+  background: rgba(185, 232, 214, 0.12); 
+  border-radius: 10px; 
+  color: var(--mint); 
+  border: 1px solid rgba(185, 232, 214, 0.25); 
+} 
+
+.dark-glass-card h3 { 
   font-size: 1.35rem; 
-  color: var(--teal-dark); 
+  color: #ffffff; 
   margin-bottom: 12px; 
 } 
 
-.advantage-card p { 
-  color: var(--muted); 
+.dark-glass-card p { 
+  color: #b2cecd; 
   font-size: .96rem; 
   line-height: 1.6; 
   margin: 0; 
@@ -817,6 +831,7 @@ h2 {
   padding: 85px 0; 
   background: var(--teal-dark); 
   color: #fff; 
+  border-top: 1px solid rgba(255, 255, 255, 0.1); 
 } 
 
 .contact-panel { 
