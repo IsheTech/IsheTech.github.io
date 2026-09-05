@@ -1,99 +1,173 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- ==========================================================================
+       META TAGS, PAGE TITLE & EXTERNAL FONTS / STYLESHEET
+       ========================================================================== -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Practical IT services, support and digital solutions from IsheTech Systems.">
   <title>IsheTech Systems | Your Smart IT Partner</title>
+  
+  <!-- Google Web Fonts: DM Sans & Nunito Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet (style.css) -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="home">
+
+  <!-- Accessibility Skip Link for Keyboard Navigation -->
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ==========================================================================
+       SITE HEADER & TOP NAVIGATION (POPULATED DYNAMICALLY VIA SCRIPT.JS)
+       ========================================================================== -->
   <header class="site-header">
     <div class="container nav-wrap"></div>
   </header>
+
+  <!-- ==========================================================================
+       MAIN PAGE CONTENT CONTAINER
+       ========================================================================== -->
   <main id="main">
+
+    <!-- ==========================================================================
+         SECTION 1: HERO (CYCLING HEADLINES, BUTTONS & GALAXY CARDS)
+         ========================================================================== -->
     <section class="hero hero-restored">
       <div class="container hero-grid">
+        
+        <!-- Left Column: Cycling Headlines & Primary Action Buttons -->
         <div class="hero-copy">
           <div class="hero-messages">
+            <!-- Headline Slide 01 -->
             <div class="hero-message hero-message-one">
               <p class="eyebrow">IsheTech Systems</p>
               <h1>Technology that moves <em>your business</em> forward.</h1>
               <p class="hero-text">Clear, reliable IT support and practical technology solutions for individuals, businesses and organisations.</p>
             </div>
+            <!-- Headline Slide 02 -->
             <div class="hero-message hero-message-two">
               <p class="eyebrow">Your Smart IT Partner</p>
               <h1>Support that makes <em>technology</em> feel simple.</h1>
               <p class="hero-text">From urgent everyday fixes to better systems for tomorrow, we help you move forward with confidence.</p>
             </div>
           </div>
+          
+          <!-- Hero Action Buttons -->
           <div class="hero-actions">
             <a class="button button-primary" href="services.html">Explore services <span>→</span></a>
             <a class="button button-secondary" href="contact.html">Talk to us</a>
           </div>
         </div>
+
+        <!-- Right Column: Rotating Galaxy Orbits & Ecosystem Cards -->
         <div class="hero-visual" aria-hidden="true">
           <div class="orbit orbit-one"></div>
           <div class="orbit orbit-two"></div>
           
+          <!-- Ecosystem Card 01: IT Helpdesk -->
           <div class="system-card card-one">
             <div class="card-badge"><span class="status-pulse"></span> Active Helpdesk</div>
             <strong>24/7 Monitoring</strong>
             <small>Instant IT Support</small>
           </div>
 
+          <!-- Ecosystem Card 02: Cloud Systems -->
           <div class="system-card card-two">
             <div class="card-badge"><span class="status-pulse"></span> Cloud Infrastructure</div>
             <strong>Connected Workflows</strong>
             <small>Seamless Collaboration</small>
           </div>
 
+          <!-- Ecosystem Card 03: IT Setup & Hardware -->
           <div class="system-card card-three">
             <div class="card-badge"><span class="status-pulse"></span> IT Setup &amp; Hardware</div>
             <strong>Devices &amp; Networks</strong>
             <small>Wi-Fi, Routers &amp; Office IT</small>
           </div>
         </div>
+
       </div>
     </section>
 
+    <!-- ==========================================================================
+         SECTION 2: WHAT WE DO / SERVICES (UNIFORM HIGH-TECH MODULES)
+         ========================================================================== -->
     <section class="section services">
       <div class="container">
+        
+        <!-- Section Intro & Section Link -->
         <div class="section-intro">
           <div>
-            <p class="eyebrow">What we do</p>
+            <p class="eyebrow">What We Do</p>
             <h2>Technology support,<br>made practical.</h2>
           </div>
-          <p>Choose one service, or bring us in as a flexible technology partner. We can support you remotely, on-site, or for a defined project period.</p>
-          <a class="text-link" href="services.html">All services <span>→</span></a>
+          <p>Choose one service or bring us in as your flexible IT partner. We support you remotely, on-site, or on a per-project basis.</p>
+          <a class="button button-dark" href="services.html">All Services <span>→</span></a>
         </div>
-        <div class="service-grid service-grid-new">
+
+        <!-- 3 Uniform Service Cards Grid -->
+        <div class="service-grid-new">
+          
+          <!-- Service Module 01: IT Support -->
           <article class="service-card">
-            <div class="service-icon">⌘</div>
+            <div class="service-card-header">
+              <span class="service-tag">01 • Helpdesk</span>
+              <div class="service-icon">⌘</div>
+            </div>
             <h3>IT Support &amp; Helpdesk</h3>
-            <p>Friendly, reliable help to keep your everyday technology working smoothly.</p>
-            <a href="services.html#support">More <span>→</span></a>
+            <p>Friendly, reliable everyday technical help to keep your staff working without frustrating interruptions.</p>
+            <ul class="service-list-mini">
+              <li><span>✓</span> Remote &amp; On-Site Support</li>
+              <li><span>✓</span> Troubleshooting &amp; Repairs</li>
+              <li><span>✓</span> User Onboarding &amp; Setup</li>
+            </ul>
+            <a class="service-link" href="services.html#support">Explore IT Support <span>→</span></a>
           </article>
-          <article class="service-card featured">
-            <div class="service-icon">◫</div>
-            <h3>Cloud &amp; Systems</h3>
-            <p>Set up, manage and use your essential business systems with confidence.</p>
-            <a href="services.html#cloud">More <span>→</span></a>
-          </article>
+
+          <!-- Service Module 02: Cloud & Web -->
           <article class="service-card">
-            <div class="service-icon">⌁</div>
-            <h3>Security &amp; Infrastructure</h3>
-            <p>Build a safer, more dependable foundation for your devices and network.</p>
-            <a href="services.html#security">More <span>→</span></a>
+            <div class="service-card-header">
+              <span class="service-tag">02 • Cloud &amp; Web</span>
+              <div class="service-icon">◫</div>
+            </div>
+            <h3>Cloud &amp; Systems</h3>
+            <p>Set up, migrate, and maintain your essential business platforms, email, and cloud storage with zero stress.</p>
+            <ul class="service-list-mini">
+              <li><span>✓</span> Cloud Email &amp; File Migration</li>
+              <li><span>✓</span> Software &amp; SaaS Management</li>
+              <li><span>✓</span> Data Backup &amp; Recovery</li>
+            </ul>
+            <a class="service-link" href="services.html#cloud">Explore Cloud Solutions <span>→</span></a>
           </article>
+
+          <!-- Service Module 03: IT Setup & Hardware -->
+          <article class="service-card">
+            <div class="service-card-header">
+              <span class="service-tag">03 • Infrastructure</span>
+              <div class="service-icon">⌁</div>
+            </div>
+            <h3>IT Setup &amp; Hardware</h3>
+            <p>Complete physical and digital setup for computers, high-speed office Wi-Fi, routers, and network gear.</p>
+            <ul class="service-list-mini">
+              <li><span>✓</span> Computer &amp; Device Configuration</li>
+              <li><span>✓</span> Wi-Fi, Routers &amp; Switches</li>
+              <li><span>✓</span> Printers &amp; Office IT Hardware</li>
+            </ul>
+            <a class="service-link" href="services.html#infrastructure">Explore IT Setup <span>→</span></a>
+          </article>
+
         </div>
       </div>
     </section>
 
+    <!-- ==========================================================================
+         SECTION 3: TARGET AUDIENCE BANNER
+         ========================================================================== -->
     <section class="audience-strip audience-relocated">
       <div class="container">
         <p>Support that fits the way you work</p>
@@ -106,8 +180,13 @@
       </div>
     </section>
 
+    <!-- ==========================================================================
+         SECTION 4: STORY PREVIEW (PHOTO & BRAND PHILOSOPHY)
+         ========================================================================== -->
     <section class="section story-preview">
       <div class="container split-photo">
+        
+        <!-- Photo with Floating Badge -->
         <div class="photo-block">
           <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="People collaborating around a laptop">
           <div class="stat-card">
@@ -115,39 +194,53 @@
             <span>Remote, on-site, or project-based</span>
           </div>
         </div>
+
+        <!-- Right Column Copy -->
         <div class="split-copy">
           <p class="eyebrow">A partner who listens</p>
           <h2>Approachable expertise for every next step.</h2>
           <p>We combine hands-on technical skill with plain, honest communication. That means less confusion, better decisions, and technology you can rely on.</p>
           <a class="button button-dark" href="why-ishetech.html">Why work with us <span>→</span></a>
         </div>
+
       </div>
     </section>
 
+    <!-- ==========================================================================
+         SECTION 5: THE ISHETECH PROMISE (CORE VALUES GRID)
+         ========================================================================== -->
     <section class="section testimonials">
       <div class="container">
         <p class="eyebrow centred">The IsheTech promise</p>
         <h2 class="centred">Technology is personal.<br>Our service should be too.</h2>
+        
         <div class="promise-grid">
+          <!-- Value 01 -->
           <div>
             <b>01</b>
             <h3>We explain clearly</h3>
             <p>No unnecessary jargon—just the information you need to make a confident decision.</p>
           </div>
+          <!-- Value 02 -->
           <div>
             <b>02</b>
             <h3>We work flexibly</h3>
             <p>Engage us for a one-off task, ongoing support, on-site work or remote assistance.</p>
           </div>
+          <!-- Value 03 -->
           <div>
             <b>03</b>
             <h3>We build for tomorrow</h3>
             <p>Solutions that solve today’s problem while leaving room for your next stage of growth.</p>
           </div>
         </div>
+
       </div>
     </section>
 
+    <!-- ==========================================================================
+         SECTION 6: CONTACT CALL-TO-ACTION BANNER
+         ========================================================================== -->
     <section class="contact">
       <div class="container contact-panel">
         <div>
@@ -158,13 +251,21 @@
         <a class="button button-light" href="contact.html">Contact us <span>→</span></a>
       </div>
     </section>
+
   </main>
 
+  <!-- ==========================================================================
+       SITE FOOTER (POPULATED DYNAMICALLY VIA SCRIPT.JS)
+       ========================================================================== -->
   <footer class="site-footer"></footer>
 
+  <!-- ==========================================================================
+       FLOATING QUICK CHAT WIDGET & JAVASCRIPT LOGIC
+       ========================================================================== -->
   <button class="chat-button" type="button" aria-label="Open quick chat" title="Quick chat">
     <span>✦</span><b>Chat</b>
   </button>
+  
   <script src="script.js"></script>
 </body>
 </html>
