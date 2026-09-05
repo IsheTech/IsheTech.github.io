@@ -550,7 +550,7 @@ h1 em {
 
 
 /* ==========================================================================
-   9. HOMEPAGE SERVICES SECTION (DARK TRANSPARENT GLASS CARDS WITH BACKDROP PHOTOS)
+   9. HOMEPAGE SERVICES SECTION (DARK TRANSPARENT GLASS CARDS & HIGH CONTRAST)
    ========================================================================== */
 .section { 
   padding: 80px 0; 
@@ -587,48 +587,47 @@ h2 {
   gap: 24px; 
 } 
 
-/* Dark Transparent Glassmorphism Service Cards */
-.dark-service-card { 
+/* Dark Glassmorphic Service Cards */
+.service-card { 
   border-radius: 16px; 
   padding: 34px 28px; 
   display: flex; 
   flex-direction: column; 
   justify-content: space-between; 
-  color: #ffffff !important; 
-  backdrop-filter: blur(14px); 
-  -webkit-backdrop-filter: blur(14px); 
-  box-shadow: 0 12px 30px rgba(5, 29, 37, 0.25); 
+  position: relative; 
+  overflow: hidden; 
+  backdrop-filter: blur(16px); 
+  -webkit-backdrop-filter: blur(16px); 
+  box-shadow: 0 14px 35px rgba(5, 29, 37, 0.35); 
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; 
 } 
 
-/* Card 01: IT Helpdesk backdrop photo */
+/* Darker, richer backdrop gradient overlays so text pops crisply */
 .service-card.card-shade-one { 
-  background: linear-gradient(180deg, rgba(8, 45, 57, 0.88) 0%, rgba(15, 66, 82, 0.92) 100%),
+  background: linear-gradient(180deg, rgba(8, 45, 57, 0.92) 0%, rgba(15, 66, 82, 0.95) 100%),
               url("https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
-  border: 1px solid rgba(185, 232, 214, 0.3); 
+  border: 1px solid rgba(185, 232, 214, 0.35); 
   border-top: 4px solid var(--mint); 
 } 
 
-/* Card 02: Cloud Solutions backdrop photo */
 .service-card.card-shade-two { 
-  background: linear-gradient(180deg, rgba(15, 66, 82, 0.88) 0%, rgba(5, 35, 44, 0.92) 100%),
+  background: linear-gradient(180deg, rgba(15, 66, 82, 0.92) 0%, rgba(5, 35, 44, 0.95) 100%),
               url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
-  border: 1px solid rgba(185, 232, 214, 0.3); 
+  border: 1px solid rgba(185, 232, 214, 0.35); 
   border-top: 4px solid #64bda5; 
 } 
 
-/* Card 03: Infrastructure backdrop photo */
 .service-card.card-shade-three { 
-  background: linear-gradient(180deg, rgba(5, 35, 44, 0.88) 0%, rgba(8, 45, 57, 0.92) 100%),
+  background: linear-gradient(180deg, rgba(5, 35, 44, 0.92) 0%, rgba(8, 45, 57, 0.95) 100%),
               url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
-  border: 1px solid rgba(185, 232, 214, 0.3); 
+  border: 1px solid rgba(185, 232, 214, 0.35); 
   border-top: 4px solid #389ba3; 
 } 
 
-.dark-service-card:hover { 
+.service-card:hover { 
   transform: translateY(-10px); 
   border-color: var(--mint) !important; 
-  box-shadow: 0 25px 50px rgba(8, 45, 57, 0.45), 0 0 0 1px var(--mint); 
+  box-shadow: 0 25px 50px rgba(8, 45, 57, 0.5), 0 0 0 1px var(--mint); 
 } 
 
 .service-card-header { 
@@ -641,7 +640,7 @@ h2 {
 .service-tag { 
   font-size: .75rem; 
   font-weight: 700; 
-  color: var(--mint); 
+  color: var(--mint) !important; 
   background: rgba(185, 232, 214, 0.18); 
   border: 1px solid rgba(185, 232, 214, 0.3); 
   padding: 5px 12px; 
@@ -649,6 +648,65 @@ h2 {
   letter-spacing: .05em; 
 } 
 
+/* High-Contrast White & Mint Typography Rules */
+.service-card h3 { 
+  font-size: 1.45rem; 
+  color: #ffffff !important; 
+  margin-bottom: 12px; 
+  font-weight: 700;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+} 
+
+.service-card p { 
+  color: #d5e4e3 !important; 
+  font-size: .95rem; 
+  line-height: 1.6; 
+  margin: 0 0 20px; 
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+} 
+
+.service-list-mini { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0 0 28px; 
+  border-top: 1px dashed rgba(185, 232, 214, 0.28); 
+  padding-top: 16px; 
+} 
+
+.service-list-mini li { 
+  font-size: .88rem; 
+  color: #ffffff !important; 
+  font-weight: 500; 
+  margin-bottom: 8px; 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+} 
+
+.service-list-mini li span { 
+  color: var(--mint) !important; 
+  font-weight: 800; 
+  font-size: .85rem; 
+} 
+
+.service-card .service-link { 
+  font-size: .92rem; 
+  font-weight: 700; 
+  color: var(--mint) !important; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 6px; 
+  transition: gap 0.2s ease, color 0.2s ease; 
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+} 
+
+.service-card:hover .service-link { 
+  color: #ffffff !important; 
+  gap: 12px; 
+} 
+
+/* Line Trace Animation Sequences */
 .service-icon-wrap { 
   width: 50px; 
   height: 50px; 
@@ -666,7 +724,6 @@ h2 {
   height: 26px; 
 } 
 
-/* --- RESTORED EXACT LINE TRACE & DISAPPEAR/REDRAW ANIMATIONS FROM VIDEO --- */
 .animated-path, 
 .animated-path-cloud {
   stroke-dasharray: 140;
@@ -719,59 +776,6 @@ h2 {
 @keyframes icon-cloud-rotate { 
   0%, 100% { transform: scale(1); } 
   50% { transform: scale(1.08) rotate(-6deg); } 
-} 
-
-.dark-service-card h3 { 
-  font-size: 1.45rem; 
-  color: #ffffff !important; 
-  margin-bottom: 12px; 
-  font-weight: 700;
-} 
-
-.dark-service-card p { 
-  color: #d5e4e3 !important; 
-  font-size: .95rem; 
-  line-height: 1.6; 
-  margin: 0 0 20px; 
-} 
-
-.service-list-mini { 
-  list-style: none; 
-  padding: 0; 
-  margin: 0 0 28px; 
-  border-top: 1px dashed rgba(185, 232, 214, 0.25); 
-  padding-top: 16px; 
-} 
-
-.service-list-mini li { 
-  font-size: .88rem; 
-  color: #ffffff !important; 
-  font-weight: 500; 
-  margin-bottom: 8px; 
-  display: flex; 
-  align-items: center; 
-  gap: 8px; 
-} 
-
-.service-list-mini li span { 
-  color: var(--mint); 
-  font-weight: 800; 
-  font-size: .85rem; 
-} 
-
-.dark-service-card .service-link { 
-  font-size: .92rem; 
-  font-weight: 700; 
-  color: var(--mint) !important; 
-  display: inline-flex; 
-  align-items: center; 
-  gap: 6px; 
-  transition: gap 0.2s ease, color 0.2s ease; 
-} 
-
-.dark-service-card:hover .service-link { 
-  color: #ffffff !important; 
-  gap: 12px; 
 }
 
 
