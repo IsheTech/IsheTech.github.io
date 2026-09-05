@@ -228,7 +228,7 @@ a {
 
 
 /* ==========================================================================
-   5. HOMEPAGE HERO SECTION (REVERTED TO UNMIRRORED HERO BACKGROUND PHOTO)
+   5. HOMEPAGE HERO SECTION
    ========================================================================== */
 .hero { 
   color: #fff; 
@@ -550,7 +550,7 @@ h1 em {
 
 
 /* ==========================================================================
-   9. HOMEPAGE SERVICES SECTION (DARK TRANSPARENT GLASS CARDS WITH BACKDROP PHOTOS)
+   9. HOMEPAGE SERVICES SECTION
    ========================================================================== */
 .section { 
   padding: 80px 0; 
@@ -587,7 +587,6 @@ h2 {
   gap: 24px; 
 } 
 
-/* Dark Transparent Glassmorphism Service Cards */
 .dark-service-card { 
   border-radius: 16px; 
   padding: 34px 28px; 
@@ -601,7 +600,6 @@ h2 {
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; 
 } 
 
-/* Card 01: IT Helpdesk backdrop photo */
 .service-card.card-shade-one { 
   background: linear-gradient(180deg, rgba(8, 45, 57, 0.82) 0%, rgba(15, 66, 82, 0.88) 100%),
               url("https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
@@ -609,7 +607,6 @@ h2 {
   border-top: 4px solid var(--mint); 
 } 
 
-/* Card 02: Cloud Solutions backdrop photo */
 .service-card.card-shade-two { 
   background: linear-gradient(180deg, rgba(15, 66, 82, 0.82) 0%, rgba(5, 35, 44, 0.88) 100%),
               url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
@@ -617,7 +614,6 @@ h2 {
   border-top: 4px solid #64bda5; 
 } 
 
-/* Card 03: Infrastructure backdrop photo */
 .service-card.card-shade-three { 
   background: linear-gradient(180deg, rgba(5, 35, 44, 0.82) 0%, rgba(8, 45, 57, 0.88) 100%),
               url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
@@ -666,7 +662,6 @@ h2 {
   height: 26px; 
 } 
 
-/* --- LINE SVG ANIMATIONS --- */
 .animated-path {
   stroke-dasharray: 100;
   stroke-dashoffset: 0;
@@ -763,7 +758,7 @@ h2 {
 
 
 /* ==========================================================================
-   10. WHY ISHETECH / HIGH-TRANSPARENCY NETWORK BACKDROP
+   10. WHY ISHETECH SECTION
    ========================================================================== */
 .dark-advantage-theme { 
   background: linear-gradient(135deg, rgba(8, 45, 57, 0.35) 0%, rgba(15, 66, 82, 0.42) 100%),
@@ -860,11 +855,12 @@ h2 {
 /* ==========================================================================
    11. REDESIGNED HIGH-TECH MULTI-COLUMN FOOTER
    ========================================================================== */
-.custom-tech-footer { 
-  background: linear-gradient(180deg, #051a24 0%, #031119 100%); 
+.site-footer { 
+  background: #031119 !important; 
   color: #b2cecd; 
   border-top: 1px solid rgba(185, 232, 214, 0.2); 
   padding: 70px 0 0; 
+  margin: 0;
 } 
 
 .footer-main-redesign { 

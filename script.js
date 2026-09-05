@@ -1,17 +1,60 @@
 const page = window.location.pathname.split('/').pop() || 'index.html';
 const isActive = (file) => page === file ? ' active' : '';
 
-/* BRAND LOGO WITH EXACT ISHETECH CASING */
+/* BRAND LOGO WITH EXACT ISHETECH CASING & EMBLEM */
 const brand = '<a class="brand" href="index.html" aria-label="IsheTech Systems home"><span class="brand-mark" aria-hidden="true"><i></i></span><span class="brand-text">ishe<span>Tech</span></span></a>';
 
-const navigation = `<button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><b class="sr-only">Open menu</b></button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a class="${isActive('index.html').trim()}" href="index.html">Home</a><div class="nav-dropdown"><a class="${isActive('about.html').trim()} ${isActive('team.html').trim()}" href="about.html">About Us <span>⌄</span></a><div class="submenu"><a href="about.html">Our story</a><a href="team.html">Our team</a></div></div><div class="nav-dropdown"><a class="${isActive('services.html').trim()}" href="services.html">Services <span>⌄</span></a><div class="submenu"><a href="services.html#support">IT support</a><a href="services.html#cloud">Cloud &amp; systems</a><a href="services.html#security">IT security</a><a href="services.html#infrastructure">Infrastructure</a><a href="services.html#strategy">IT strategy</a></div></div><a class="${isActive('why-ishetech.html').trim()}" href="why-ishetech.html">Why IsheTech</a><a class="${isActive('contact.html').trim()}" href="contact.html">Contact us</a></nav>`;
+const navigation = `<button class="nav-toggle" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><b class="sr-only">Open menu</b></button><nav id="site-nav" class="site-nav" aria-label="Main navigation"><a class="${isActive('index.html').trim()}" href="index.html">Home</a><div class="nav-dropdown"><a class="${isActive('about.html').trim()} ${isActive('team.html').trim()}" href="about.html">About Us <span>⌄</span></a><div class="submenu"><a href="about.html">Our story</a><a href="team.html">Our team</a></div></div><div class="nav-dropdown"><a class="${isActive('services.html').trim()}" href="services.html">Services <span>⌄</span></a><div class="submenu"><a href="services.html#support">IT support</a><a href="services.html#cloud">Cloud &amp; systems</a><a href="services.html#security">IT security</a><a href="services.html#infrastructure">Infrastructure</a></div></div><a class="${isActive('why-ishetech.html').trim()}" href="why-ishetech.html">Why IsheTech</a><a class="${isActive('contact.html').trim()}" href="contact.html">Contact us</a></nav>`;
 
 document.querySelectorAll('.site-header .nav-wrap').forEach((header) => {
   header.innerHTML = brand + navigation;
 });
 
+/* REDESIGNED DYNAMIC MULTI-COLUMN HIGH-TECH FOOTER */
 document.querySelectorAll('.site-footer').forEach((footer) => {
-  footer.innerHTML = `<div class="container footer-main"><div>${brand}<p>Your Smart IT Partner.</p></div><div><b>Explore</b><a href="about.html">About us</a><a href="services.html">Services</a><a href="contact.html">Contact us</a></div><div><b>Connect</b><div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="WhatsApp">◔</a></div><small>Social links are ready for your real profiles.</small></div></div><div class="container footer-bottom">© <span id="year"></span> IsheTech Systems. All rights reserved.<a href="#main">Back to top ↑</a></div>`;
+  footer.innerHTML = `
+    <div class="container footer-main-redesign">
+      <div class="footer-col brand-col">
+        ${brand}
+        <p class="footer-brand-desc">Your Smart IT Partner. Practical technology support, cloud infrastructure, and hardware setup for growing modern businesses.</p>
+        <div class="footer-status-pill">
+          <span class="status-pulse"></span> All Systems Operational
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html#support">IT Support &amp; Helpdesk</a></li>
+          <li><a href="services.html#cloud">Cloud &amp; Systems</a></li>
+          <li><a href="services.html#infrastructure">IT Setup &amp; Hardware</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">About IsheTech</a></li>
+          <li><a href="why-ishetech.html">Why Work With Us</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col contact-col">
+        <h4 class="footer-col-title">Get in Touch</h4>
+        <p class="footer-contact-line"><strong>Remote &amp; On-Site IT Support</strong></p>
+        <p class="footer-contact-line"><a href="contact.html" class="mint-link">Schedule a Free IT Audit →</a></p>
+        <div class="socials-wrap">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="#" aria-label="WhatsApp">◔</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom-redesign">
+      <p>© <span id="year"></span> IsheTech Systems. All rights reserved.</p>
+      <a class="back-to-top" href="#main">Back to top ↑</a>
+    </div>
+  `;
 });
 
 const toggle = document.querySelector('.nav-toggle');
