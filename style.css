@@ -734,112 +734,96 @@ h2 {
 
 
 /* ==========================================================================
-   10. WHY ISHETECH / LIGHT MINT THEME WITH NETWORK SPECIALIST PHOTO
+   10. WHY ISHETECH / LIGHTENED OVERLAY + NETWORK SPECIALIST PHOTO BACKDROP
    ========================================================================== */
-.light-advantage-theme { 
-  background: #f4f8f6; 
-  padding: 90px 0 100px; 
-  border-top: 1px solid #dbe6e2; 
-  border-bottom: 1px solid #dbe6e2; 
-} 
-
-/* Top Split Layout: Intro Text & Network Photo */
-.why-split-block { 
-  display: grid; 
-  grid-template-columns: 1.15fr .85fr; 
-  gap: 55px; 
-  align-items: center; 
-  margin-bottom: 45px; 
-} 
-
-.why-intro-copy h2 { 
-  color: var(--teal-dark); 
-  margin-bottom: 16px; 
-} 
-
-.why-intro-copy p:not(.eyebrow) { 
-  color: var(--muted); 
-  font-size: 1.05rem; 
-  line-height: 1.65; 
-  margin-bottom: 28px; 
-} 
-
-/* Photo Wrapper & Floating Badge */
-.why-photo-wrapper { 
-  position: relative; 
-  border-radius: 16px; 
-  overflow: visible; 
-} 
-
-.why-photo-wrapper img { 
-  display: block; 
-  width: 100%; 
-  height: 380px; 
-  object-fit: cover; 
-  border-radius: 16px; 
-  box-shadow: 0 15px 35px rgba(15, 66, 82, 0.12); 
-  border: 1px solid rgba(15, 66, 82, 0.1); 
-} 
-
-.photo-floating-badge { 
-  position: absolute; 
-  bottom: -20px; 
-  left: -20px; 
-  background: var(--teal-dark); 
+.dark-advantage-theme { 
+  background: linear-gradient(135deg, rgba(8, 45, 57, 0.52) 0%, rgba(15, 66, 82, 0.58) 100%),
+              url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat; 
+  padding: 100px 0 110px; 
   color: #ffffff; 
-  padding: 16px 20px; 
-  border-radius: 12px; 
+  position: relative; 
+  overflow: hidden; 
+  border-top: 1px solid rgba(185, 232, 214, 0.2); 
+  border-bottom: 1px solid rgba(185, 232, 214, 0.15); 
+} 
+
+.eyebrow-light { 
+  color: var(--mint) !important; 
+} 
+
+.title-light { 
+  color: #ffffff !important; 
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+} 
+
+.text-light { 
+  color: #ffffff !important; 
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+} 
+
+.advantage-grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 24px; 
+  margin-top: 30px; 
+} 
+
+/* 4-Pillar Glass Cards over Lightened Photo */
+.dark-glass-card { 
+  background: rgba(8, 45, 57, 0.72) !important; 
+  backdrop-filter: blur(14px); 
+  -webkit-backdrop-filter: blur(14px); 
+  border: 1px solid rgba(185, 232, 214, 0.3) !important; 
+  border-left: 5px solid var(--mint) !important; 
+  border-radius: 14px; 
+  padding: 35px 30px; 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); 
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease; 
+} 
+
+.dark-glass-card:hover { 
+  transform: translateY(-8px); 
+  background: rgba(15, 66, 82, 0.88) !important; 
+  border-color: var(--mint) !important; 
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--mint); 
+} 
+
+.adv-header { 
   display: flex; 
+  justify-content: space-between; 
   align-items: center; 
-  gap: 12px; 
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); 
+  margin-bottom: 20px; 
+} 
+
+.adv-number { 
+  font-family: "Space Grotesk", sans-serif; 
+  font-size: 1.6rem; 
+  font-weight: 800; 
+  color: var(--mint); 
+  opacity: 0.95; 
+} 
+
+.dark-icon-wrap { 
+  width: 48px; 
+  height: 48px; 
+  display: grid; 
+  place-items: center; 
+  background: rgba(185, 232, 214, 0.15); 
+  border-radius: 10px; 
+  color: var(--mint); 
   border: 1px solid rgba(185, 232, 214, 0.3); 
 } 
 
-.photo-floating-badge strong { 
-  display: block; 
-  font-size: .92rem; 
-  font-family: "Space Grotesk", sans-serif; 
-  color: #ffffff; 
-} 
-
-.photo-floating-badge small { 
-  display: block; 
-  color: var(--mint); 
-  font-size: .75rem; 
-} 
-
-.margin-top-lg { 
-  margin-top: 55px; 
-} 
-
-/* Light 4-Pillar Advantage Cards */
-.light-adv-card { 
-  background: #ffffff !important; 
-  border: 1px solid var(--line) !important; 
-  border-left: 5px solid var(--teal) !important; 
-  border-radius: 14px; 
-  padding: 32px 28px; 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; 
-} 
-
-.light-adv-card:hover { 
-  transform: translateY(-8px); 
-  border-left-color: var(--mint) !important; 
-  border-color: rgba(15, 66, 82, 0.2) !important; 
-  box-shadow: 0 20px 40px rgba(15, 66, 82, 0.12); 
-} 
-
-.light-adv-card h3 { 
+.dark-glass-card h3 { 
   font-size: 1.35rem; 
-  color: var(--teal-dark); 
-  margin-bottom: 10px; 
+  color: #ffffff; 
+  margin-bottom: 12px; 
 } 
 
-.light-adv-card p { 
-  color: var(--muted); 
-  font-size: .95rem; 
+.dark-glass-card p { 
+  color: #e0eeee; 
+  font-size: .96rem; 
   line-height: 1.6; 
   margin: 0; 
 }
@@ -1240,10 +1224,6 @@ h2 {
   .card-three { bottom: 10px; left: 10px; } 
 
   .hero-audience-pills { margin-top: 8px; } 
-
-  .why-split-block { grid-template-columns: 1fr; gap: 30px; }
-  .why-photo-wrapper img { height: 280px; }
-  .photo-floating-badge { left: 10px; bottom: -15px; padding: 12px 16px; }
 
   .section-intro { grid-template-columns: 1fr; gap: 18px; } 
   .service-grid-new, 
