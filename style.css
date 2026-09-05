@@ -16,11 +16,11 @@
    2. GLOBAL RESETS & BODY BASE STYLES
    ========================================================================== */
 * { 
-  box-sizing: border-box; /* */
+  box-sizing: border-box; 
 } 
 
 html { 
-  scroll-behavior: smooth; /* */
+  scroll-behavior: smooth; 
 } 
 
 body { 
@@ -552,7 +552,7 @@ h1 em {
 
 
 /* ==========================================================================
-   9. HOMEPAGE & SERVICES PAGE GLASS CARDS
+   9. HOMEPAGE & SERVICES PAGE GLASS CARDS (EXPLICIT CONTRAST RESTORED)
    ========================================================================== */
 .section { 
   padding: 80px 0; 
@@ -608,7 +608,7 @@ h2 {
   margin: 0 auto; 
 } 
 
-/* Dark Glassmorphic Service Cards/Pods */
+/* Dark Glassmorphic Service Cards/Pods Base */
 .service-card { 
   border-radius: 16px; 
   padding: 38px 34px; 
@@ -671,7 +671,7 @@ h2 {
 .service-tag { 
   font-size: .78rem; 
   font-weight: 700; 
-  color: var(--mint); 
+  color: var(--mint) !important; 
   background: rgba(185, 232, 214, 0.18); 
   border: 1px solid rgba(185, 232, 214, 0.3); 
   padding: 6px 14px; 
@@ -708,16 +708,53 @@ h2 {
   margin-bottom: 14px; 
 } 
 
-/* Standard list view used in services.html */
+/* --- HOMEPAGE & SERVICES BULLET LIST STYLES (EXPLICITLY RESTORED) --- */
+.service-list-mini { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0 0 28px; 
+  border-top: 1px dashed rgba(185, 232, 214, 0.25); 
+  padding-top: 18px; 
+} 
+
+.service-list-mini li { 
+  font-size: .9rem; 
+  color: #ffffff !important; 
+  font-weight: 500; 
+  margin-bottom: 10px; 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+} 
+
+.service-list-mini li span { 
+  color: var(--mint) !important; 
+  font-weight: 800; 
+  font-size: .85rem; 
+} 
+
 .service-list-mini.expanded-two-col { 
   display: grid; 
   grid-template-columns: repeat(2, 1fr); 
   gap: 12px 28px; 
-  list-style: none; 
-  padding: 0; 
-  margin: 0; 
-  border-top: 1px dashed rgba(185, 232, 214, 0.25); 
-  padding-top: 20px; 
+} 
+
+/* --- HOMEPAGE SERVICE LINK (EXPLICITLY RESTORED) --- */
+.service-link { 
+  font-size: .92rem; 
+  font-weight: 700; 
+  color: var(--mint) !important; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 6px; 
+  transition: gap 0.2s ease, color 0.2s ease; 
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+} 
+
+.service-card:hover .service-link { 
+  color: #ffffff !important; 
+  gap: 12px; 
 } 
 
 /* Deliverables pills used in team.html grid pods */
@@ -734,20 +771,12 @@ h2 {
 .deliverables-pills li { 
   font-size: .7rem; 
   font-weight: 700; 
-  color: #ffffff; 
+  color: #ffffff !important; 
   background: rgba(185, 232, 214, 0.12); 
   border: 1px solid rgba(185, 232, 214, 0.2); 
   padding: 5px 12px; 
   border-radius: 15px; 
   letter-spacing: .02em; 
-} 
-
-.service-card .button { font-size: .8rem; } 
-
-.deliverables-pills li span { 
-  color: var(--mint) !important; 
-  font-weight: 800; 
-  font-size: .9rem; 
 } 
 
 .card-footer-action { 
@@ -763,7 +792,7 @@ h2 {
   place-items: center; 
   background: rgba(185, 232, 214, 0.15); 
   border-radius: 12px; 
-  color: var(--mint); 
+  color: var(--mint) !important; 
   border: 1px solid rgba(185, 232, 214, 0.3); 
   backdrop-filter: blur(8px); 
 } 
@@ -771,6 +800,7 @@ h2 {
 .service-svg { 
   width: 26px; 
   height: 26px; 
+  color: var(--mint) !important; 
 } 
 
 .animated-path {
@@ -1212,25 +1242,9 @@ h2 {
   font-size: .73rem; 
 }
 
-/* Special CSS for the circular grid pods on team.html */
-.services-page-grid.starburst-grid { 
-  display: grid; 
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 40px; 
-  max-width: 900px; 
-  margin: 0 auto; 
-} 
-
-/* Special desktop rule for Card 03 to span full width */
-.starburst-grid .pod-card-3 { 
-  grid-column: 1 / -1; 
-  max-width: 600px; 
-  margin: 0 auto; 
-} 
-
 
 /* ==========================================================================
-   14. MOBILE RESPONSIVE MEDIA QUERIES (COMPLETE SECTION)
+   14. MOBILE RESPONSIVE MEDIA QUERIES
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   .hero-message, 
@@ -1332,7 +1346,6 @@ h2 {
   .services-page-grid,
   .starburst-grid { grid-template-columns: 1fr; gap: 20px; } 
 
-  /* Reset Card 03 mobile full-width rule for stack */
   .starburst-grid .pod-card-3 {
     max-width: 100%;
     margin: 0;
