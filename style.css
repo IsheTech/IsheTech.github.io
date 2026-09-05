@@ -550,7 +550,7 @@ h1 em {
 
 
 /* ==========================================================================
-   9. HOMEPAGE SERVICES SECTION (DARK TRANSPARENT GLASS CARDS & HIGH CONTRAST)
+   9. HOMEPAGE SERVICES SECTION (EXACT SHOOTING-STAR TRACE & REDRAW ANIMATION)
    ========================================================================== */
 .section { 
   padding: 80px 0; 
@@ -598,36 +598,35 @@ h2 {
   overflow: hidden; 
   backdrop-filter: blur(16px); 
   -webkit-backdrop-filter: blur(16px); 
-  box-shadow: 0 14px 35px rgba(5, 29, 37, 0.35); 
+  box-shadow: 0 14px 35px rgba(5, 29, 37, 0.3); 
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; 
 } 
 
-/* Darker, richer backdrop gradient overlays so text pops crisply */
 .service-card.card-shade-one { 
-  background: linear-gradient(180deg, rgba(8, 45, 57, 0.92) 0%, rgba(15, 66, 82, 0.95) 100%),
+  background: linear-gradient(180deg, rgba(8, 45, 57, 0.88) 0%, rgba(15, 66, 82, 0.92) 100%),
               url("https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
-  border: 1px solid rgba(185, 232, 214, 0.35); 
+  border: 1px solid rgba(185, 232, 214, 0.3); 
   border-top: 4px solid var(--mint); 
 } 
 
 .service-card.card-shade-two { 
-  background: linear-gradient(180deg, rgba(15, 66, 82, 0.92) 0%, rgba(5, 35, 44, 0.95) 100%),
+  background: linear-gradient(180deg, rgba(15, 66, 82, 0.88) 0%, rgba(5, 35, 44, 0.92) 100%),
               url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
-  border: 1px solid rgba(185, 232, 214, 0.35); 
+  border: 1px solid rgba(185, 232, 214, 0.3); 
   border-top: 4px solid #64bda5; 
 } 
 
 .service-card.card-shade-three { 
-  background: linear-gradient(180deg, rgba(5, 35, 44, 0.92) 0%, rgba(8, 45, 57, 0.95) 100%),
+  background: linear-gradient(180deg, rgba(5, 35, 44, 0.88) 0%, rgba(8, 45, 57, 0.92) 100%),
               url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
-  border: 1px solid rgba(185, 232, 214, 0.35); 
+  border: 1px solid rgba(185, 232, 214, 0.3); 
   border-top: 4px solid #389ba3; 
 } 
 
 .service-card:hover { 
   transform: translateY(-10px); 
   border-color: var(--mint) !important; 
-  box-shadow: 0 25px 50px rgba(8, 45, 57, 0.5), 0 0 0 1px var(--mint); 
+  box-shadow: 0 25px 50px rgba(8, 45, 57, 0.45), 0 0 0 1px var(--mint); 
 } 
 
 .service-card-header { 
@@ -640,7 +639,7 @@ h2 {
 .service-tag { 
   font-size: .75rem; 
   font-weight: 700; 
-  color: var(--mint) !important; 
+  color: var(--mint); 
   background: rgba(185, 232, 214, 0.18); 
   border: 1px solid rgba(185, 232, 214, 0.3); 
   padding: 5px 12px; 
@@ -648,7 +647,6 @@ h2 {
   letter-spacing: .05em; 
 } 
 
-/* High-Contrast White & Mint Typography Rules */
 .service-card h3 { 
   font-size: 1.45rem; 
   color: #ffffff !important; 
@@ -706,7 +704,7 @@ h2 {
   gap: 12px; 
 } 
 
-/* Line Trace Animation Sequences */
+/* --- ICON WRAPPER & SHOOTING-STAR PATH REDRAW SEQUENCE --- */
 .service-icon-wrap { 
   width: 50px; 
   height: 50px; 
@@ -724,58 +722,60 @@ h2 {
   height: 26px; 
 } 
 
+/* SVG Path Animation: Complete Line -> Travelling Dash -> Disappear -> Redraw */
 .animated-path, 
 .animated-path-cloud {
-  stroke-dasharray: 140;
+  stroke-dasharray: 200 200;
   stroke-dashoffset: 0;
   transform-origin: center;
-  animation: line-trace-draw-loop 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: shooting-star-path-loop 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-@keyframes line-trace-draw-loop {
+/* Stagger delays across the 3 cards so they don't animate synchronously */
+.card-shade-one .animated-path { 
+  animation-delay: 0s; 
+}
+
+.card-shade-two .animated-path-cloud, 
+.card-shade-two .animated-path { 
+  animation-delay: 2s; 
+}
+
+.card-shade-three .animated-path { 
+  animation-delay: 4s; 
+}
+
+@keyframes shooting-star-path-loop {
   0% {
+    stroke-dasharray: 200 0;
     stroke-dashoffset: 0;
     opacity: 1;
     transform: scale(1) rotate(0deg);
   }
-  38% {
-    stroke-dashoffset: 140;
-    opacity: 0.15;
-    transform: scale(0.88) rotate(120deg);
+  25% {
+    stroke-dasharray: 35 165;
+    stroke-dashoffset: -70;
+    opacity: 0.9;
+    transform: scale(0.92) rotate(90deg);
   }
   50% {
-    stroke-dashoffset: 280;
+    stroke-dasharray: 0 200;
+    stroke-dashoffset: -200;
     opacity: 0;
     transform: scale(0.8) rotate(180deg);
   }
-  62% {
-    stroke-dashoffset: 140;
-    opacity: 0.4;
-    transform: scale(0.9) rotate(240deg);
+  75% {
+    stroke-dasharray: 60 140;
+    stroke-dashoffset: -280;
+    opacity: 0.65;
+    transform: scale(0.92) rotate(270deg);
   }
   100% {
-    stroke-dashoffset: 0;
+    stroke-dasharray: 200 0;
+    stroke-dashoffset: -400;
     opacity: 1;
     transform: scale(1) rotate(360deg);
   }
-}
-
-.icon-pulse .service-svg { 
-  animation: icon-headset-rotate 5.5s ease-in-out infinite; 
-} 
-
-.icon-shooting-star .service-svg { 
-  animation: icon-cloud-rotate 5.5s ease-in-out infinite; 
-} 
-
-@keyframes icon-headset-rotate { 
-  0%, 100% { transform: scale(1); } 
-  50% { transform: scale(1.1) rotate(6deg); color: #ffffff; } 
-} 
-
-@keyframes icon-cloud-rotate { 
-  0%, 100% { transform: scale(1); } 
-  50% { transform: scale(1.08) rotate(-6deg); } 
 }
 
 
