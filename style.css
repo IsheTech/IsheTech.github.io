@@ -550,7 +550,7 @@ h1 em {
 
 
 /* ==========================================================================
-   9. HOMEPAGE SERVICES SECTION (EXACT SHOOTING-STAR TRACE & REDRAW ANIMATION)
+   9. HOMEPAGE SERVICES SECTION (EXACT SHOOTING-STAR LINE TRACE & DISAPPEAR LOOP)
    ========================================================================== */
 .section { 
   padding: 80px 0; 
@@ -588,17 +588,16 @@ h2 {
 } 
 
 /* Dark Glassmorphic Service Cards */
-.service-card { 
+.dark-service-card { 
   border-radius: 16px; 
   padding: 34px 28px; 
   display: flex; 
   flex-direction: column; 
   justify-content: space-between; 
-  position: relative; 
-  overflow: hidden; 
-  backdrop-filter: blur(16px); 
-  -webkit-backdrop-filter: blur(16px); 
-  box-shadow: 0 14px 35px rgba(5, 29, 37, 0.3); 
+  color: #ffffff !important; 
+  backdrop-filter: blur(14px); 
+  -webkit-backdrop-filter: blur(14px); 
+  box-shadow: 0 12px 30px rgba(5, 29, 37, 0.25); 
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; 
 } 
 
@@ -623,7 +622,7 @@ h2 {
   border-top: 4px solid #389ba3; 
 } 
 
-.service-card:hover { 
+.dark-service-card:hover { 
   transform: translateY(-10px); 
   border-color: var(--mint) !important; 
   box-shadow: 0 25px 50px rgba(8, 45, 57, 0.45), 0 0 0 1px var(--mint); 
@@ -647,7 +646,72 @@ h2 {
   letter-spacing: .05em; 
 } 
 
-.service-card h3 { 
+.service-icon-wrap { 
+  width: 50px; 
+  height: 50px; 
+  display: grid; 
+  place-items: center; 
+  background: rgba(185, 232, 214, 0.15); 
+  border-radius: 12px; 
+  color: var(--mint); 
+  border: 1px solid rgba(185, 232, 214, 0.3); 
+  backdrop-filter: blur(8px); 
+} 
+
+.service-svg { 
+  width: 26px; 
+  height: 26px; 
+} 
+
+/* --- EXACT SHOOTING STAR / LINE-TRACE ANIMATION (WORKS VIA pathLength="100") --- */
+.animated-path {
+  stroke-dasharray: 100 100;
+  stroke-dashoffset: 0;
+  animation: shooting-star-dash 7s ease-in-out infinite;
+}
+
+/* Staggered delays across 3 cards */
+.card-shade-one .animated-path {
+  animation-delay: 0s;
+}
+
+.card-shade-two .animated-path {
+  animation-delay: 2.3s;
+}
+
+.card-shade-three .animated-path {
+  animation-delay: 4.6s;
+}
+
+@keyframes shooting-star-dash {
+  0% {
+    stroke-dasharray: 100 0;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  30% {
+    stroke-dasharray: 25 75;
+    stroke-dashoffset: -40;
+    opacity: 0.85;
+  }
+  48%, 58% {
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: -100;
+    opacity: 0;
+  }
+  78% {
+    stroke-dasharray: 25 75;
+    stroke-dashoffset: -140;
+    opacity: 0.85;
+  }
+  100% {
+    stroke-dasharray: 100 0;
+    stroke-dashoffset: -200;
+    opacity: 1;
+  }
+}
+
+.dark-service-card h3 { 
   font-size: 1.45rem; 
   color: #ffffff !important; 
   margin-bottom: 12px; 
@@ -655,7 +719,7 @@ h2 {
   text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 } 
 
-.service-card p { 
+.dark-service-card p { 
   color: #d5e4e3 !important; 
   font-size: .95rem; 
   line-height: 1.6; 
@@ -667,7 +731,7 @@ h2 {
   list-style: none; 
   padding: 0; 
   margin: 0 0 28px; 
-  border-top: 1px dashed rgba(185, 232, 214, 0.28); 
+  border-top: 1px dashed rgba(185, 232, 214, 0.25); 
   padding-top: 16px; 
 } 
 
@@ -688,7 +752,7 @@ h2 {
   font-size: .85rem; 
 } 
 
-.service-card .service-link { 
+.dark-service-card .service-link { 
   font-size: .92rem; 
   font-weight: 700; 
   color: var(--mint) !important; 
@@ -699,83 +763,9 @@ h2 {
   text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 } 
 
-.service-card:hover .service-link { 
+.dark-service-card:hover .service-link { 
   color: #ffffff !important; 
   gap: 12px; 
-} 
-
-/* --- ICON WRAPPER & SHOOTING-STAR PATH REDRAW SEQUENCE --- */
-.service-icon-wrap { 
-  width: 50px; 
-  height: 50px; 
-  display: grid; 
-  place-items: center; 
-  background: rgba(185, 232, 214, 0.15); 
-  border-radius: 12px; 
-  color: var(--mint); 
-  border: 1px solid rgba(185, 232, 214, 0.3); 
-  backdrop-filter: blur(8px); 
-} 
-
-.service-svg { 
-  width: 26px; 
-  height: 26px; 
-} 
-
-/* SVG Path Animation: Complete Line -> Travelling Dash -> Disappear -> Redraw */
-.animated-path, 
-.animated-path-cloud {
-  stroke-dasharray: 200 200;
-  stroke-dashoffset: 0;
-  transform-origin: center;
-  animation: shooting-star-path-loop 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-/* Stagger delays across the 3 cards so they don't animate synchronously */
-.card-shade-one .animated-path { 
-  animation-delay: 0s; 
-}
-
-.card-shade-two .animated-path-cloud, 
-.card-shade-two .animated-path { 
-  animation-delay: 2s; 
-}
-
-.card-shade-three .animated-path { 
-  animation-delay: 4s; 
-}
-
-@keyframes shooting-star-path-loop {
-  0% {
-    stroke-dasharray: 200 0;
-    stroke-dashoffset: 0;
-    opacity: 1;
-    transform: scale(1) rotate(0deg);
-  }
-  25% {
-    stroke-dasharray: 35 165;
-    stroke-dashoffset: -70;
-    opacity: 0.9;
-    transform: scale(0.92) rotate(90deg);
-  }
-  50% {
-    stroke-dasharray: 0 200;
-    stroke-dashoffset: -200;
-    opacity: 0;
-    transform: scale(0.8) rotate(180deg);
-  }
-  75% {
-    stroke-dasharray: 60 140;
-    stroke-dashoffset: -280;
-    opacity: 0.65;
-    transform: scale(0.92) rotate(270deg);
-  }
-  100% {
-    stroke-dasharray: 200 0;
-    stroke-dashoffset: -400;
-    opacity: 1;
-    transform: scale(1) rotate(360deg);
-  }
 }
 
 
