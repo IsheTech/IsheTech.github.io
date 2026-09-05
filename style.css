@@ -183,7 +183,7 @@ a {
   width: 32px; 
   height: 40px; 
   border: 2px solid #83b6b6; 
-  border-radius: 9px; /* RESTORED original rounded rectangle frame */
+  border-radius: 9px; 
   background: transparent; 
   box-sizing: border-box; 
 } 
@@ -228,45 +228,24 @@ a {
 
 
 /* ==========================================================================
-   5. HOMEPAGE HERO SECTION (MIRRORED IMAGE WITH GLOWING RACKS ON RIGHT)
+   5. HOMEPAGE HERO SECTION (REVERTED TO UNMIRRORED HERO BACKGROUND PHOTO)
    ========================================================================== */
 .hero { 
   color: #fff; 
   min-height: 100vh; 
   overflow: hidden; 
-  background: var(--teal-dark); 
+  background: radial-gradient(circle at 78% 35%, #1c6876 0, transparent 28%), linear-gradient(118deg, var(--teal-dark), var(--teal)); 
   padding: 120px 0 50px; 
   display: flex; 
   align-items: center; 
-  position: relative;
 } 
 
 .hero-restored { 
-  position: relative;
+  background: linear-gradient(90deg, rgba(8,45,57,.95) 0%, rgba(15,66,82,.88) 56%, rgba(15,66,82,.72) 100%), 
+              url("https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat; 
 } 
 
-/* Mirrored Background Photo (Server Racks now on the Right Side) */
-.hero-restored::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
-  transform: scaleX(-1); /* Flips image horizontally */
-  z-index: 0;
-}
-
-/* Lighter Gradient Overlay (Lets Server Rack Lights Glow through on the Right) */
-.hero-restored::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(8,45,57,0.96) 0%, rgba(15,66,82,0.82) 45%, rgba(15,66,82,0.25) 100%);
-  z-index: 0;
-}
-
 .hero-grid { 
-  position: relative;
-  z-index: 1;
   display: grid; 
   grid-template-columns: 1.15fr .85fr; 
   align-items: center; 
@@ -571,7 +550,7 @@ h1 em {
 
 
 /* ==========================================================================
-   9. HOMEPAGE SERVICES SECTION (INDIVIDUAL BACKDROP PHOTOS IN CARDS)
+   9. HOMEPAGE SERVICES SECTION (DARK TRANSPARENT GLASS CARDS WITH BACKDROP PHOTOS)
    ========================================================================== */
 .section { 
   padding: 80px 0; 
@@ -608,43 +587,48 @@ h2 {
   gap: 24px; 
 } 
 
-.service-grid-new .service-card { 
-  border-radius: 14px; 
-  padding: 32px 28px; 
+/* Dark Transparent Glassmorphism Service Cards */
+.dark-service-card { 
+  border-radius: 16px; 
+  padding: 34px 28px; 
   display: flex; 
   flex-direction: column; 
   justify-content: space-between; 
-  border: 1px solid var(--line); 
-  box-shadow: 0 6px 18px rgba(15, 66, 82, 0.05); 
+  color: #ffffff !important; 
+  backdrop-filter: blur(14px); 
+  -webkit-backdrop-filter: blur(14px); 
+  box-shadow: 0 12px 30px rgba(5, 29, 37, 0.25); 
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease; 
 } 
 
-/* Card 01: IT Helpdesk with custom backdrop photo */
+/* Card 01: IT Helpdesk backdrop photo */
 .service-card.card-shade-one { 
-  background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(244,249,247,0.96) 100%),
-              url("https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=600&q=80") center/cover no-repeat; 
-  border-top: 4px solid var(--teal); 
+  background: linear-gradient(180deg, rgba(8, 45, 57, 0.82) 0%, rgba(15, 66, 82, 0.88) 100%),
+              url("https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
+  border: 1px solid rgba(185, 232, 214, 0.25); 
+  border-top: 4px solid var(--mint); 
 } 
 
-/* Card 02: Cloud Solutions with custom backdrop photo */
+/* Card 02: Cloud Solutions backdrop photo */
 .service-card.card-shade-two { 
-  background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(240,248,245,0.96) 100%),
-              url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80") center/cover no-repeat; 
-  border-top: 4px solid #23727b; 
+  background: linear-gradient(180deg, rgba(15, 66, 82, 0.82) 0%, rgba(5, 35, 44, 0.88) 100%),
+              url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
+  border: 1px solid rgba(185, 232, 214, 0.25); 
+  border-top: 4px solid #64bda5; 
 } 
 
-/* Card 03: Infrastructure & Setup with custom backdrop photo */
+/* Card 03: Infrastructure backdrop photo */
 .service-card.card-shade-three { 
-  background: linear-gradient(180deg, rgba(255,255,255,0.94) 0%, rgba(235,246,243,0.96) 100%),
-              url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80") center/cover no-repeat; 
+  background: linear-gradient(180deg, rgba(5, 35, 44, 0.82) 0%, rgba(8, 45, 57, 0.88) 100%),
+              url("https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80") center/cover no-repeat; 
+  border: 1px solid rgba(185, 232, 214, 0.25); 
   border-top: 4px solid #389ba3; 
 } 
 
-.service-grid-new .service-card:hover { 
+.dark-service-card:hover { 
   transform: translateY(-10px); 
-  border-top-color: var(--mint); 
-  border-color: rgba(185, 232, 214, 0.9); 
-  box-shadow: 0 22px 45px rgba(8, 45, 57, 0.16), 0 0 0 2px rgba(185, 232, 214, 0.6); 
+  border-color: var(--mint) !important; 
+  box-shadow: 0 25px 50px rgba(8, 45, 57, 0.4), 0 0 0 1px var(--mint); 
 } 
 
 .service-card-header { 
@@ -657,23 +641,24 @@ h2 {
 .service-tag { 
   font-size: .75rem; 
   font-weight: 700; 
-  color: var(--teal-dark); 
-  background: rgba(185, 232, 214, 0.55); 
+  color: var(--mint); 
+  background: rgba(185, 232, 214, 0.18); 
+  border: 1px solid rgba(185, 232, 214, 0.3); 
   padding: 5px 12px; 
   border-radius: 20px; 
   letter-spacing: .05em; 
 } 
 
 .service-icon-wrap { 
-  width: 48px; 
-  height: 48px; 
+  width: 50px; 
+  height: 50px; 
   display: grid; 
   place-items: center; 
-  background: #ffffff; 
-  border-radius: 10px; 
-  color: var(--teal); 
-  border: 1px solid rgba(15, 66, 82, 0.15); 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06); 
+  background: rgba(185, 232, 214, 0.12); 
+  border-radius: 12px; 
+  color: var(--mint); 
+  border: 1px solid rgba(185, 232, 214, 0.25); 
+  backdrop-filter: blur(8px); 
 } 
 
 .service-svg { 
@@ -681,43 +666,59 @@ h2 {
   height: 26px; 
 } 
 
+/* --- LINE SVG ANIMATIONS --- */
+.animated-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  animation: line-stroke-draw 6s ease-in-out infinite;
+}
+
+.animated-path-cloud {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 0;
+  animation: shooting-cloud-draw 8s ease-in-out infinite;
+}
+
+@keyframes line-stroke-draw {
+  0% { stroke-dashoffset: 100; opacity: 0.3; }
+  50% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: -100; opacity: 0.3; }
+}
+
+@keyframes shooting-cloud-draw {
+  0% { stroke-dashoffset: 120; transform: scale(1); opacity: 0.4; }
+  40% { stroke-dashoffset: 0; transform: scale(1.06); opacity: 1; }
+  80%, 100% { stroke-dashoffset: -120; transform: scale(1); opacity: 0.4; }
+}
+
 .icon-pulse .service-svg { 
-  animation: headset-pulse 3s ease-in-out infinite; 
+  animation: headset-pulse 3.5s ease-in-out infinite; 
 } 
 
-.icon-float .service-svg { 
-  animation: cloud-float 4s ease-in-out infinite; 
-} 
-
-.icon-wifi .service-svg { 
-  animation: signal-ping 2.5s ease-in-out infinite; 
+.icon-shooting-star .service-svg { 
+  animation: shooting-star-float 5s ease-in-out infinite; 
 } 
 
 @keyframes headset-pulse { 
-  0%, 100% { transform: scale(1); color: var(--teal); } 
-  50% { transform: scale(1.12); color: #23727b; } 
+  0%, 100% { transform: scale(1); } 
+  50% { transform: scale(1.12); color: #ffffff; } 
 } 
 
-@keyframes cloud-float { 
-  0%, 100% { transform: translateY(0); } 
-  50% { transform: translateY(-5px); } 
+@keyframes shooting-star-float { 
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 1; } 
+  50% { transform: translateY(-6px) rotate(3deg); opacity: 0.85; } 
 } 
 
-@keyframes signal-ping { 
-  0%, 100% { opacity: 1; transform: scale(1); } 
-  50% { opacity: 0.7; transform: scale(1.08); } 
-} 
-
-.service-card h3 { 
-  font-size: 1.4rem; 
-  color: var(--teal-dark); 
+.dark-service-card h3 { 
+  font-size: 1.45rem; 
+  color: #ffffff; 
   margin-bottom: 12px; 
 } 
 
-.service-card p { 
-  color: var(--ink); 
-  font-size: .94rem; 
-  line-height: 1.55; 
+.dark-service-card p { 
+  color: #d5e4e3; 
+  font-size: .95rem; 
+  line-height: 1.6; 
   margin: 0 0 20px; 
 } 
 
@@ -725,14 +726,14 @@ h2 {
   list-style: none; 
   padding: 0; 
   margin: 0 0 28px; 
-  border-top: 1px dashed rgba(15, 66, 82, 0.2); 
+  border-top: 1px dashed rgba(185, 232, 214, 0.25); 
   padding-top: 16px; 
 } 
 
 .service-list-mini li { 
-  font-size: .86rem; 
-  color: var(--ink); 
-  font-weight: 600; 
+  font-size: .88rem; 
+  color: #e0eeee; 
+  font-weight: 500; 
   margin-bottom: 8px; 
   display: flex; 
   align-items: center; 
@@ -740,32 +741,32 @@ h2 {
 } 
 
 .service-list-mini li span { 
-  color: #23727b; 
+  color: var(--mint); 
   font-weight: 800; 
   font-size: .8rem; 
 } 
 
-.service-link { 
-  font-size: .9rem; 
+.dark-service-card .service-link { 
+  font-size: .92rem; 
   font-weight: 700; 
-  color: var(--teal); 
+  color: var(--mint); 
   display: inline-flex; 
   align-items: center; 
   gap: 6px; 
   transition: gap 0.2s ease, color 0.2s ease; 
 } 
 
-.service-card:hover .service-link { 
-  color: #23727b; 
-  gap: 10px; 
+.dark-service-card:hover .service-link { 
+  color: #ffffff; 
+  gap: 12px; 
 }
 
 
 /* ==========================================================================
-   10. WHY ISHETECH / DARK ADVANTAGE SECTION WITH TECH GRID BACKDROP
+   10. WHY ISHETECH / HIGH-TRANSPARENCY NETWORK BACKDROP
    ========================================================================== */
 .dark-advantage-theme { 
-  background: linear-gradient(135deg, rgba(8, 45, 57, 0.94) 0%, rgba(15, 66, 82, 0.96) 100%),
+  background: linear-gradient(135deg, rgba(8, 45, 57, 0.35) 0%, rgba(15, 66, 82, 0.42) 100%),
               url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat; 
   padding: 100px 0 110px; 
   color: #ffffff; 
@@ -781,13 +782,13 @@ h2 {
 
 .title-light { 
   color: #ffffff !important; 
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
 } 
 
 .text-light { 
   color: #ffffff !important; 
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
-  font-weight: 500;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+  font-weight: 600;
 } 
 
 .advantage-grid { 
@@ -797,24 +798,23 @@ h2 {
   margin-top: 30px; 
 } 
 
-/* 4-Pillar Glass Cards */
 .dark-glass-card { 
-  background: rgba(8, 45, 57, 0.72) !important; 
+  background: rgba(8, 45, 57, 0.78) !important; 
   backdrop-filter: blur(14px); 
   -webkit-backdrop-filter: blur(14px); 
   border: 1px solid rgba(185, 232, 214, 0.3) !important; 
   border-left: 5px solid var(--mint) !important; 
   border-radius: 14px; 
   padding: 35px 30px; 
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35); 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); 
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease; 
 } 
 
 .dark-glass-card:hover { 
   transform: translateY(-8px); 
-  background: rgba(15, 66, 82, 0.88) !important; 
+  background: rgba(15, 66, 82, 0.92) !important; 
   border-color: var(--mint) !important; 
-  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--mint); 
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--mint); 
 } 
 
 .adv-header { 
@@ -858,71 +858,132 @@ h2 {
 
 
 /* ==========================================================================
-   11. SITE FOOTER STYLES
+   11. REDESIGNED HIGH-TECH MULTI-COLUMN FOOTER
    ========================================================================== */
-.site-footer { 
-  background: var(--teal-dark); 
-  color: #b3cecc; 
-  border-top: 1px solid #24505a; 
-  padding: 27px 0; 
+.custom-tech-footer { 
+  background: linear-gradient(180deg, #051a24 0%, #031119 100%); 
+  color: #b2cecd; 
+  border-top: 1px solid rgba(185, 232, 214, 0.2); 
+  padding: 70px 0 0; 
 } 
 
-.footer-main { 
+.footer-main-redesign { 
   display: grid; 
-  grid-template-columns: 1.5fr .7fr 1fr; 
-  gap: 30px; 
-  padding: 55px 0; 
+  grid-template-columns: 1.4fr 1fr 1fr 1.1fr; 
+  gap: 45px; 
+  padding-bottom: 55px; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
 } 
 
-.footer-main p { 
-  font-size: .86rem; 
+.footer-col .brand-text { 
+  font-size: 1.7rem; 
 } 
 
-.footer-main b { 
-  display: block; 
-  color: #fff; 
+.footer-brand-desc { 
+  font-size: .9rem; 
+  color: #a0c2c0; 
+  line-height: 1.6; 
+  margin: 18px 0 20px; 
+  max-width: 320px; 
+} 
+
+.footer-status-pill { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 10px; 
+  background: rgba(185, 232, 214, 0.08); 
+  border: 1px solid rgba(185, 232, 214, 0.25); 
+  padding: 6px 14px; 
+  border-radius: 30px; 
+  font-size: .78rem; 
+  font-weight: 700; 
+  color: var(--mint); 
+} 
+
+.footer-col-title { 
+  font-family: "Space Grotesk", sans-serif; 
+  font-size: 1.05rem; 
+  font-weight: 700; 
+  color: #ffffff; 
+  margin: 0 0 20px; 
+  letter-spacing: .02em; 
+} 
+
+.footer-links { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+} 
+
+.footer-links li { 
   margin-bottom: 12px; 
-  font: 600 .92rem "Space Grotesk"; 
 } 
 
-.footer-main > div > a:not(.brand) { 
-  display: block; 
-  font-size: .83rem; 
-  margin: 7px 0; 
+.footer-links a { 
+  color: #a0c2c0; 
+  font-size: .9rem; 
+  transition: color 0.2s ease, padding-left 0.2s ease; 
 } 
 
-.socials { 
-  display: flex; 
-  gap: 8px; 
+.footer-links a:hover { 
+  color: var(--mint); 
+  padding-left: 4px; 
 } 
 
-.socials a { 
-  width: 30px; 
-  height: 30px; 
-  display: grid; 
-  place-items: center; 
-  border: 1px solid #477177; 
-  border-radius: 50%; 
+.footer-contact-line { 
+  font-size: .9rem; 
+  color: #a0c2c0; 
+  margin: 0 0 10px; 
+} 
+
+.mint-link { 
+  color: var(--mint) !important; 
   font-weight: 700; 
 } 
 
-.socials a:hover { 
+.socials-wrap { 
+  display: flex; 
+  gap: 10px; 
+  margin-top: 20px; 
+} 
+
+.socials-wrap a { 
+  width: 36px; 
+  height: 36px; 
+  display: grid; 
+  place-items: center; 
+  border: 1px solid rgba(185, 232, 214, 0.3); 
+  border-radius: 50%; 
+  color: #ffffff; 
+  font-weight: 700; 
+  font-size: .88rem; 
+  background: rgba(255, 255, 255, 0.04); 
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease; 
+} 
+
+.socials-wrap a:hover { 
   background: var(--mint); 
   color: var(--teal-dark); 
+  transform: translateY(-3px); 
 } 
 
-.footer-main small { 
-  display: block; 
-  margin-top: 12px; 
-  font-size: .68rem; 
-} 
-
-.footer-bottom { 
-  border-top: 1px solid #24505a; 
-  padding: 19px 0; 
+.footer-bottom-redesign { 
   display: flex; 
   justify-content: space-between; 
-  font-size: .73rem; 
+  align-items: center; 
+  padding: 24px 0; 
+  font-size: .82rem; 
+  color: #7b9f9e; 
+} 
+
+.back-to-top { 
+  color: var(--mint); 
+  font-weight: 700; 
+  transition: opacity 0.2s ease; 
+} 
+
+.back-to-top:hover { 
+  opacity: 0.8; 
 }
 
 
@@ -1166,7 +1227,9 @@ h2 {
   .hero-restored .orbit-two, 
   .hero-restored .card-dot, 
   .hero-restored .status-pulse,
-  .service-svg { 
+  .service-svg,
+  .animated-path,
+  .animated-path-cloud { 
     animation: none; 
   }
 }
@@ -1257,8 +1320,8 @@ h2 {
   .service-grid-new, 
   .advantage-grid { grid-template-columns: 1fr; gap: 18px; } 
 
-  .footer-main { grid-template-columns: 1fr; padding: 40px 0; } 
-  .footer-bottom { flex-direction: column; gap: 7px; } 
+  .footer-main-redesign { grid-template-columns: 1fr; gap: 30px; } 
+  .footer-bottom-redesign { flex-direction: column; gap: 10px; text-align: center; } 
 
   .page-hero { min-height: 365px; padding: 135px 0 80px; } 
   .page-hero:after { height: 42px; } 
