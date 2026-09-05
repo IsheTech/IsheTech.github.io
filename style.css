@@ -380,7 +380,7 @@ h1 em {
   justify-content: center; 
   gap: 12px; 
   min-height: 52px; 
-  padding: 0 24px; 
+  padding: 0 26px; 
   border-radius: 6px; 
   font-weight: 700; 
   font-size: .95rem; 
@@ -584,23 +584,24 @@ h2 {
   font-size: clamp(2.3rem, 4vw, 3.85rem); 
 } 
 
+/* 3-Column Homepage Grid */
 .service-grid-new { 
   display: grid; 
   grid-template-columns: repeat(3, 1fr); 
   gap: 24px; 
 } 
 
-/* 2x2 Services Page Grid Layout */
-.services-page-grid { 
+/* Single-Column (1x1) Services Page Stack */
+.services-page-grid.single-column-stack { 
   display: grid; 
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 30px; 
+  grid-template-columns: 1fr; 
+  gap: 36px; 
 } 
 
 /* Dark Glassmorphic Service Cards */
 .service-card { 
   border-radius: 16px; 
-  padding: 36px 30px; 
+  padding: 38px 34px; 
   display: flex; 
   flex-direction: column; 
   justify-content: space-between; 
@@ -634,7 +635,7 @@ h2 {
 } 
 
 .service-card:hover { 
-  transform: translateY(-8px); 
+  transform: translateY(-6px); 
   border-color: var(--mint) !important; 
   box-shadow: 0 25px 50px rgba(8, 45, 57, 0.45), 0 0 0 1px var(--mint); 
 } 
@@ -647,45 +648,61 @@ h2 {
 } 
 
 .service-tag { 
-  font-size: .75rem; 
+  font-size: .78rem; 
   font-weight: 700; 
   color: var(--mint); 
   background: rgba(185, 232, 214, 0.18); 
   border: 1px solid rgba(185, 232, 214, 0.3); 
-  padding: 5px 12px; 
+  padding: 6px 14px; 
   border-radius: 20px; 
   letter-spacing: .05em; 
 } 
 
 .service-card h3 { 
-  font-size: 1.55rem; 
+  font-size: 1.75rem; 
   color: #ffffff !important; 
-  margin-bottom: 12px; 
+  margin-bottom: 14px; 
   font-weight: 700;
   text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 } 
 
 .service-card p { 
   color: #d5e4e3 !important; 
-  font-size: .98rem; 
-  line-height: 1.6; 
-  margin: 0 0 22px; 
+  font-size: 1.02rem; 
+  line-height: 1.65; 
+  margin: 0 0 24px; 
   text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 } 
 
-.service-list-mini { 
+.expanded-features-wrap { 
+  margin-bottom: 28px; 
+} 
+
+.expanded-features-wrap strong { 
+  display: block; 
+  font-size: .88rem; 
+  text-transform: uppercase; 
+  letter-spacing: .08em; 
+  color: var(--mint); 
+  margin-bottom: 14px; 
+} 
+
+/* 2-Column Checkmark Grid for Expanded 1x1 Cards */
+.service-list-mini.expanded-two-col { 
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 12px 28px; 
   list-style: none; 
   padding: 0; 
-  margin: 0 0 28px; 
+  margin: 0; 
   border-top: 1px dashed rgba(185, 232, 214, 0.25); 
-  padding-top: 18px; 
+  padding-top: 20px; 
 } 
 
 .service-list-mini li { 
-  font-size: .9rem; 
+  font-size: .94rem; 
   color: #ffffff !important; 
   font-weight: 500; 
-  margin-bottom: 10px; 
   display: flex; 
   align-items: center; 
   gap: 10px; 
@@ -695,7 +712,7 @@ h2 {
 .service-list-mini li span { 
   color: var(--mint) !important; 
   font-weight: 800; 
-  font-size: .85rem; 
+  font-size: .9rem; 
 } 
 
 .card-footer-action { 
@@ -703,14 +720,10 @@ h2 {
   padding-top: 10px; 
 } 
 
-.card-footer-action .button { 
-  width: 100%; 
-} 
-
 /* --- ANIMATED SVG ICON WRAPPER & SHOOTING STAR LOOP --- */
 .service-icon-wrap { 
-  width: 50px; 
-  height: 50px; 
+  width: 52px; 
+  height: 52px; 
   display: grid; 
   place-items: center; 
   background: rgba(185, 232, 214, 0.15); 
@@ -1259,8 +1272,9 @@ h2 {
 
   .section-intro { grid-template-columns: 1fr; gap: 18px; } 
   .service-grid-new, 
-  .advantage-grid,
-  .services-page-grid { grid-template-columns: 1fr; gap: 20px; } 
+  .advantage-grid { grid-template-columns: 1fr; gap: 18px; } 
+
+  .service-list-mini.expanded-two-col { grid-template-columns: 1fr; }
 
   .footer-main-redesign { grid-template-columns: 1fr; gap: 30px; } 
   .footer-bottom-redesign { flex-direction: column; gap: 10px; text-align: center; } 
