@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
       </a>
       <nav class="site-nav" id="site-nav">
         <a href="index.html" class="${currentPath === 'index.html' ? 'active' : ''}">Home</a>
+        <a href="index.html#why-ishetech">Why IsheTech</a>
         <a href="about.html" class="${currentPath === 'about.html' ? 'active' : ''}">About Us</a>
         <a href="services.html" class="${currentPath === 'services.html' ? 'active' : ''}">Services</a>
         <a href="team.html" class="${currentPath === 'team.html' ? 'active' : ''}">Our Team</a>
-        <a href="index.html#why-ishetech">Why IsheTech</a>
-        <a href="contact.html" class="nav-cta ${currentPath === 'contact.html' ? 'active' : ''}">Contact Us</a>
+        <a href="contact.html" class="${currentPath === 'contact.html' ? 'active' : ''}">Contact Us</a>
       </nav>
       <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle Navigation">
         <span></span><span></span><span></span>
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 3. DYNAMIC FOOTER GENERATION
+  // 3. DYNAMIC FOOTER GENERATION (CENTERED STATUS BADGE)
   const footer = document.querySelector('.site-footer');
   if (footer) {
     footer.innerHTML = `
@@ -47,9 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
               <span class="brand-text">Ishe<span>Tech</span></span>
             </a>
             <p class="footer-brand-desc">Your Smart IT Partner. Practical technology support, cloud infrastructure, and enterprise hardware setup for growing modern businesses.</p>
-            <div class="footer-status-pill">
-              <span class="status-pulse"></span> All Systems Operational
-            </div>
           </div>
           <div class="footer-col">
             <h4 class="footer-col-title">Services</h4>
@@ -74,6 +71,11 @@ document.addEventListener('DOMContentLoaded', function () {
             <p class="footer-contact-line">General: <a href="mailto:info@ishetech.com" class="mint-link">info@ishetech.com</a></p>
             <p class="footer-contact-line">Support: <a href="mailto:support@ishetech.nl" class="mint-link">support@ishetech.nl</a></p>
             <p class="footer-contact-line">Phone: <a href="tel:+31619193177" class="mint-link">+31 6 1919 3177</a></p>
+          </div>
+        </div>
+        <div class="footer-status-center">
+          <div class="footer-status-pill">
+            <span class="status-pulse"></span> All Systems Operational
           </div>
         </div>
         <div class="footer-bottom-redesign">

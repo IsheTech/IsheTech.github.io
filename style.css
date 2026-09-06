@@ -55,6 +55,8 @@ a {
 }
 
 
+
+
 /* ==========================================================================
    3. SITE HEADER & TOP NAVIGATION BAR
    ========================================================================== */
@@ -75,71 +77,52 @@ a {
 .site-nav { 
   display: flex; 
   align-items: center; 
-  gap: 30px; 
+  gap: 32px; 
   font-size: .95rem; 
   font-weight: 600; 
 } 
 
-.site-nav > a:not(.nav-cta) { 
-  opacity: .88; 
+/* Smooth motion lift & animated mint underline on hover */
+.site-nav > a { 
+  position: relative;
+  opacity: .85; 
+  padding: 4px 0;
+  transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+  display: inline-block;
 } 
 
-.site-nav > a:not(.nav-cta):hover { 
+.site-nav > a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--mint);
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.site-nav > a:hover { 
   opacity: 1; 
+  color: var(--mint);
+  transform: translateY(-2px);
 } 
 
+.site-nav > a:hover::after {
+  width: 100%;
+}
+
+/* Distinct Mint Active Indicator for Current Page */
 .site-nav a.active { 
-  color: var(--mint); 
+  color: var(--mint) !important; 
+  opacity: 1 !important;
+  font-weight: 700;
 } 
 
-.nav-cta { 
-  border: 1px solid #78a5a9; 
-  padding: 10px 15px; 
-  border-radius: 4px; 
-} 
-
-.nav-cta:hover { 
-  background: #fff; 
-  color: var(--teal); 
-} 
-
-.nav-dropdown { 
-  position: relative; 
-} 
-
-.nav-dropdown > a span { 
-  font-size: .75rem; 
-  margin-left: 3px; 
-} 
-
-.submenu { 
-  display: none; 
-  position: absolute; 
-  top: 24px; 
-  left: -13px; 
-  width: 205px; 
-  background: #fff; 
-  color: var(--ink); 
-  padding: 10px 0; 
-  box-shadow: 0 15px 35px rgba(0,0,0,.18); 
-  border-radius: 5px; 
-} 
-
-.submenu a { 
-  display: block; 
-  padding: 9px 14px; 
-  font-size: .82rem; 
-} 
-
-.submenu a:hover { 
-  background: #edf4f1; 
-  color: var(--teal); 
-} 
-
-.nav-dropdown:hover .submenu,
-.nav-dropdown:focus-within .submenu { 
-  display: block; 
-} 
+.site-nav a.active::after {
+  width: 100%;
+}
 
 .nav-toggle { 
   display: none; 
@@ -165,6 +148,57 @@ a {
   overflow: hidden; 
   clip: rect(0,0,0,0); 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ==========================================================================
@@ -227,17 +261,20 @@ a {
 } 
 
 
+
 /* ==========================================================================
-   5. HOMEPAGE HERO SECTION
+   5. HOMEPAGE HERO SECTION & CENTERED BOTTOM PILLS
    ========================================================================== */
 .hero { 
   color: #fff; 
   min-height: 100vh; 
   overflow: hidden; 
   background: radial-gradient(circle at 78% 35%, #1c6876 0, transparent 28%), linear-gradient(118deg, var(--teal-dark), var(--teal)); 
-  padding: 120px 0 50px; 
+  padding: 130px 0 35px; 
   display: flex; 
   align-items: center; 
+  justify-content: center;
+  box-sizing: border-box;
 } 
 
 .hero-restored { 
@@ -249,7 +286,7 @@ a {
   display: grid; 
   grid-template-columns: 1.15fr .85fr; 
   align-items: center; 
-  gap: 40px; 
+  gap: 20px 30px; 
 } 
 
 .hero-copy { 
@@ -258,7 +295,7 @@ a {
 } 
 
 .eyebrow { 
-  margin: 0 0 14px; 
+  margin: 0 0 12px; 
   color: #64bda5; 
   text-transform: uppercase; 
   letter-spacing: .16em; 
@@ -279,7 +316,7 @@ h1, h2, h3 {
 
 h1 { 
   max-width: 650px; 
-  font-size: clamp(3rem, 5.5vw, 4.8rem); 
+  font-size: clamp(2.8rem, 4.8vw, 4.2rem); 
 } 
 
 h1 em { 
@@ -290,14 +327,14 @@ h1 em {
 .hero-text { 
   max-width: 520px; 
   color: #d5e4e3; 
-  font-size: 1.08rem; 
-  margin: 22px 0 0; 
+  font-size: 1.05rem; 
+  margin: 18px 0 0; 
   line-height: 1.6; 
 } 
 
 .hero-messages { 
   position: relative; 
-  min-height: 450px; 
+  min-height: 370px; 
 } 
 
 .hero-message { 
@@ -318,11 +355,15 @@ h1 em {
   50%, 100% { opacity: 0; transform: translateX(65px); } 
 }
 
-/* --- HERO AUDIENCE SCALE PILLS --- */
-.hero-audience { 
-  margin-top: 32px; 
-  position: relative; 
-  z-index: 2; 
+/* Bottom Centered Audience Scale Pills */
+.hero-audience-bottom {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(185, 232, 214, 0.15);
+  position: relative;
+  z-index: 2;
 } 
 
 .hero-audience-title { 
@@ -336,7 +377,8 @@ h1 em {
 
 .hero-audience-pills { 
   display: flex; 
-  gap: 10px; 
+  gap: 12px; 
+  justify-content: center;
   flex-wrap: wrap; 
 } 
 
@@ -346,13 +388,13 @@ h1 em {
   gap: 8px; 
   background: rgba(255, 255, 255, 0.08); 
   border: 1px solid rgba(185, 232, 214, 0.25); 
-  padding: 6px 14px; 
+  padding: 6px 16px; 
   border-radius: 20px; 
   font-size: .8rem; 
   font-weight: 600; 
   color: #d5e4e3; 
   backdrop-filter: blur(8px); 
-  transition: background 0.25s ease, border-color 0.25s ease; 
+  transition: background 0.25s ease, border-color 0.25s ease;
 } 
 
 .hero-audience-pills span:hover { 
@@ -371,19 +413,19 @@ h1 em {
   flex-wrap: wrap; 
   position: relative; 
   z-index: 2; 
-  margin-top: 35px; 
+  margin-top: 20px; 
 } 
 
 .button { 
   display: inline-flex; 
   align-items: center; 
   justify-content: center; 
-  gap: 12px; 
-  min-height: 52px; 
-  padding: 0 24px; 
+  gap: 10px; 
+  min-height: 46px; 
+  padding: 0 20px; 
   border-radius: 6px; 
   font-weight: 700; 
-  font-size: .95rem; 
+  font-size: .9rem; 
   transition: all 0.25s ease; 
   cursor: pointer; 
   text-decoration: none; 
@@ -400,7 +442,6 @@ h1 em {
   color: var(--teal-dark) !important; 
   border-color: #ffffff; 
   transform: translateY(-2px); 
-  box-shadow: 0 8px 20px rgba(185, 232, 214, 0.3); 
 } 
 
 .button-secondary { 
@@ -425,7 +466,12 @@ h1 em {
   background: var(--teal-dark); 
   color: var(--mint) !important; 
   border-color: var(--mint); 
-} 
+}
+
+
+
+
+
 
 
 /* ==========================================================================
@@ -922,6 +968,7 @@ h2 {
 }
 
 
+
 /* ==========================================================================
    11. REDESIGNED HIGH-TECH MULTI-COLUMN FOOTER
    ========================================================================== */
@@ -937,8 +984,7 @@ h2 {
   display: grid; 
   grid-template-columns: 1.4fr 1fr 1fr 1.1fr; 
   gap: 45px; 
-  padding-bottom: 55px; 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+  padding-bottom: 25px; 
 } 
 
 .footer-col .brand-text { 
@@ -949,9 +995,16 @@ h2 {
   font-size: .9rem; 
   color: #a0c2c0; 
   line-height: 1.6; 
-  margin: 18px 0 20px; 
+  margin: 18px 0 0; 
   max-width: 320px; 
 } 
+
+/* Centered Status Badge Container (Line Above Removed) */
+.footer-status-center {
+  text-align: center;
+  padding: 10px 0 25px;
+  border-top: none !important;
+}
 
 .footer-status-pill { 
   display: inline-flex; 
@@ -959,7 +1012,7 @@ h2 {
   gap: 10px; 
   background: rgba(185, 232, 214, 0.08); 
   border: 1px solid rgba(185, 232, 214, 0.25); 
-  padding: 6px 14px; 
+  padding: 6px 16px; 
   border-radius: 30px; 
   font-size: .78rem; 
   font-weight: 700; 
@@ -1007,37 +1060,12 @@ h2 {
   font-weight: 700; 
 } 
 
-.socials-wrap { 
-  display: flex; 
-  gap: 10px; 
-  margin-top: 20px; 
-} 
-
-.socials-wrap a { 
-  width: 36px; 
-  height: 36px; 
-  display: grid; 
-  place-items: center; 
-  border: 1px solid rgba(185, 232, 214, 0.3); 
-  border-radius: 50%; 
-  color: #ffffff; 
-  font-weight: 700; 
-  font-size: .88rem; 
-  background: rgba(255, 255, 255, 0.04); 
-  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease; 
-} 
-
-.socials-wrap a:hover { 
-  background: var(--mint); 
-  color: var(--teal-dark); 
-  transform: translateY(-3px); 
-} 
-
 .footer-bottom-redesign { 
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  padding: 24px 0; 
+  padding: 20px 0 24px; 
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   font-size: .82rem; 
   color: #7b9f9e; 
 } 
@@ -1051,6 +1079,12 @@ h2 {
 .back-to-top:hover { 
   opacity: 0.8; 
 }
+
+
+
+
+
+
 
 
 /* ==========================================================================
@@ -1134,20 +1168,35 @@ h2 {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================================
    13. SUB-PAGES (PAGE HERO, CONTACT FORM & SHARED POD STYLES)
    ========================================================================== */
 .inner-header { 
-  position: relative; 
-  background: var(--teal-dark); 
+  background: transparent !important; 
 } 
 
+/* Base Page Hero with Default Dark Overlay */
 .page-hero { 
   position: relative; 
   overflow: hidden; 
-  min-height: 360px; 
-  padding: 140px 0 70px; 
-  background: linear-gradient(90deg, rgba(8,45,57,.94), rgba(15,66,82,.78)), url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=80") center/cover; 
+  min-height: 425px; 
+  padding: 175px 0 110px; 
+  background: linear-gradient(90deg, rgba(8,45,57,.92), rgba(15,66,82,.78)), 
+              url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+  color: #ffffff !important;
 } 
 
 .page-hero:after { 
@@ -1157,7 +1206,7 @@ h2 {
   left: -2%; 
   right: -2%; 
   bottom: -1px; 
-  height: 50px; 
+  height: 70px; 
   background: var(--cream); 
   clip-path: ellipse(58% 50% at 50% 100%); 
 } 
@@ -1168,19 +1217,40 @@ h2 {
 } 
 
 .page-hero h1 { 
-  color: #fff; 
+  color: #ffffff !important; 
   font-size: clamp(2.7rem, 5vw, 4.5rem); 
 } 
 
 .page-hero h1 em { 
-  color: var(--mint); 
+  color: var(--mint) !important; 
 } 
 
 .page-hero > div > p:last-child { 
-  color: #e0eeee; 
+  color: #e0eeee !important; 
   max-width: 640px; 
   font-size: 1.08rem; 
-  margin: 18px 0 0; 
+  margin: 25px 0 0; 
+} 
+
+/* Sub-page Specific Background Overrides */
+.about-page .page-hero { 
+  background: linear-gradient(90deg, rgba(8,45,57,.92), rgba(15,66,82,.78)), 
+              url("https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat; 
+} 
+
+.services-page .page-hero { 
+  background: linear-gradient(90deg, rgba(8,45,57,.92), rgba(15,66,82,.78)), 
+              url("https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat; 
+} 
+
+.team-page .page-hero { 
+  background: linear-gradient(90deg, rgba(8,45,57,.92), rgba(15,66,82,.78)), 
+              url("https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=1800&auto=format&fit=crop") center/cover no-repeat; 
+} 
+
+.contact-page .page-hero { 
+  background: linear-gradient(90deg, rgba(8,45,57,.92), rgba(15,66,82,.78)), 
+              url("https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat; 
 } 
 
 .contact-section {
@@ -1239,7 +1309,6 @@ h2 {
   letter-spacing: .04em;
 } 
 
-/* Default Unselected State: All empty fields & unselected dropdown match light glass background */
 .form-group input, 
 .form-group select,
 .form-group textarea { 
@@ -1256,7 +1325,6 @@ h2 {
   transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
 } 
 
-/* Selected / Filled State: Shifts to dark background + crisp white text once typed or selected */
 .form-group input:not(:placeholder-shown),
 .form-group textarea:not(:placeholder-shown),
 .form-group select:valid {
@@ -1265,7 +1333,6 @@ h2 {
   color: #ffffff !important;
 }
 
-/* Format options popup menu */
 .form-group select option {
   background-color: #082d39;
   color: #ffffff;
@@ -1275,7 +1342,6 @@ h2 {
   color: #8daaa8;
 }
 
-/* Browser Autofill Fix */
 .form-group input:-webkit-autofill,
 .form-group input:-webkit-autofill:hover,
 .form-group input:-webkit-autofill:focus,
@@ -1300,7 +1366,6 @@ h2 {
   box-shadow: 0 0 0 3px rgba(185, 232, 214, 0.15);
 }
 
-/* In-Page Success Alert Box */
 .form-success-alert {
   background: rgba(185, 232, 214, 0.15);
   border: 1px solid var(--mint);
@@ -1330,6 +1395,150 @@ h2 {
   max-width: 600px; 
   margin: 0 auto; 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ==========================================================================
