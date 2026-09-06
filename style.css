@@ -1222,7 +1222,7 @@ h2 {
   font-weight: 700; 
 } 
 
-/* Dark Glassmorphic Contact Form Inputs */
+/* Dark Glassmorphic Form Base Styles */
 .contact-form-glass { 
   display: grid; 
   gap: 14px; 
@@ -1239,6 +1239,7 @@ h2 {
   letter-spacing: .04em;
 } 
 
+/* Default State: All unselected/empty fields match glass background */
 .form-group input, 
 .form-group select,
 .form-group textarea { 
@@ -1252,10 +1253,35 @@ h2 {
   color: #ffffff;
   outline: none;
   backdrop-filter: blur(8px);
-  transition: border-color 0.25s ease, background 0.25s ease;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
 } 
 
-/* Browser Autofill Fix: Keeps text white and input transparent dark glass */
+/* Unselected select placeholder text color */
+.form-group select:invalid {
+  color: #8daaa8;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Filled State: Shifts to darker solid background when typed or selected */
+.form-group input:not(:placeholder-shown),
+.form-group textarea:not(:placeholder-shown),
+.form-group select:valid {
+  background: #082d39;
+  border-color: rgba(185, 232, 214, 0.5);
+  color: #ffffff;
+}
+
+/* Options popup menu formatting */
+.form-group select option {
+  background-color: #082d39;
+  color: #ffffff;
+}
+
+.form-group select option[disabled] {
+  color: #8daaa8;
+}
+
+/* Browser Autofill Fix */
 .form-group input:-webkit-autofill,
 .form-group input:-webkit-autofill:hover,
 .form-group input:-webkit-autofill:focus,
@@ -1265,11 +1291,6 @@ h2 {
   -webkit-box-shadow: 0 0 0px 1000px #082d39 inset !important;
   box-shadow: 0 0 0px 1000px #082d39 inset !important;
   transition: background-color 5000s ease-in-out 0s;
-}
-
-.form-group select {
-  color: #ffffff;
-  background-color: var(--teal-dark);
 }
 
 .form-group input::placeholder,
