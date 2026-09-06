@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 3. DYNAMIC FOOTER GENERATION (STATUS PILL MOVED ABOVE COPYRIGHT LINE)
+  // 3. DYNAMIC FOOTER GENERATION
   const footer = document.querySelector('.site-footer');
   if (footer) {
     footer.innerHTML = `
@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
               <span class="brand-text">Ishe<span>Tech</span></span>
             </a>
             <p class="footer-brand-desc">Your Smart IT Partner. Practical technology support, cloud infrastructure, and enterprise hardware setup for growing modern businesses.</p>
+            <div class="footer-status-pill">
+              <span class="status-pulse"></span> All Systems Operational
+            </div>
           </div>
           <div class="footer-col">
             <h4 class="footer-col-title">Services</h4>
@@ -73,11 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
             <p class="footer-contact-line">Phone: <a href="tel:+31619193177" class="mint-link">+31 6 1919 3177</a></p>
           </div>
         </div>
-        <div class="footer-status-center">
-          <div class="footer-status-pill">
-            <span class="status-pulse"></span> All Systems Operational
-          </div>
-        </div>
         <div class="footer-bottom-redesign">
           <p>&copy; ${new Date().getFullYear()} IsheTech Systems. All rights reserved.</p>
           <a href="#main" class="back-to-top">Back to Top ↑</a>
@@ -86,23 +84,18 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
   }
 
-  // 4. FLOATING QUICK CHAT WIDGET (WITH QUICK LINKS & LIVE AGENT ROUTING)
+  // 4. FLOATING QUICK CHAT WIDGET
   const chatButton = document.querySelector('.chat-button');
   if (chatButton) {
     const chatPanel = document.createElement('div');
     chatPanel.className = 'chat-panel';
     chatPanel.innerHTML = `
       <button class="chat-close" aria-label="Close chat">&times;</button>
-      <p class="eyebrow">IsheTech Quick Assistant</p>
-      <h3>How can we help you today?</h3>
-      <div class="chat-quick-links">
-        <a href="services.html"><b>✦ Services Overview</b> <span>Explore capabilities →</span></a>
-        <a href="team.html"><b>✦ Meet Our Engineers</b> <span>Technical leads →</span></a>
-        <a href="contact.html"><b>✦ Book IT Consultation</b> <span>Inquiry form →</span></a>
-        <a href="mailto:support@ishetech.nl?subject=Urgent%20Live%20Chat%20Support" class="chat-agent-btn">
-          <b>💬 Live Agent Chat</b> <span>Direct engineer desk →</span>
-        </a>
-      </div>
+      <p class="eyebrow">Quick Help</p>
+      <h3>Need immediate assistance?</h3>
+      <p>Send a direct inquiry or email our support desk for emergency outages.</p>
+      <a href="contact.html">Go to Contact Form →</a>
+      <a href="mailto:support@ishetech.nl">Email Support Desk →</a>
     `;
     document.body.appendChild(chatPanel);
 
