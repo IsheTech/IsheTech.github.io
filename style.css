@@ -1397,6 +1397,47 @@ h2 {
 }
 
 
+/* --- ABOUT US FULL-WIDTH OPEN STORY SECTION --- */
+.about-story-section.dark-story-theme {
+  background: linear-gradient(135deg, rgba(8, 45, 57, 0.92) 0%, rgba(15, 66, 82, 0.95) 100%),
+              url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+  padding: 85px 0;
+  color: #ffffff;
+  border-top: 1px solid rgba(185, 232, 214, 0.2);
+  border-bottom: 1px solid rgba(185, 232, 214, 0.15);
+}
+
+.about-story-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.about-story-header h2 {
+  color: #ffffff !important;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin: 0;
+}
+
+.about-story-lead {
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: #d5e4e3 !important;
+  max-width: 900px;
+  margin: 0 0 35px;
+}
+
+.story-checklist {
+  border-top: 1px dashed rgba(185, 232, 214, 0.25);
+  padding-top: 20px;
+}
+
+.story-checklist li {
+  font-size: 0.98rem;
+  color: #ffffff !important;
+}
 
 
 
