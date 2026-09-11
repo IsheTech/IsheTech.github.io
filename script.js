@@ -86,18 +86,24 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
   }
 
-  // 4. FLOATING QUICK CHAT WIDGET
+  // 4. FLOATING QUICK CHAT WIDGET WITH LIVE AGENT & QUICK LINKS
   const chatButton = document.querySelector('.chat-button');
   if (chatButton) {
     const chatPanel = document.createElement('div');
     chatPanel.className = 'chat-panel';
     chatPanel.innerHTML = `
       <button class="chat-close" aria-label="Close chat">&times;</button>
-      <p class="eyebrow">Quick Help</p>
-      <h3>Need immediate assistance?</h3>
-      <p>Send a direct inquiry or email our support desk for emergency outages.</p>
-      <a href="contact.html">Go to Contact Form →</a>
-      <a href="mailto:support@ishetech.nl">Email Support Desk →</a>
+      <p class="eyebrow">IsheTech Assistant</p>
+      <h3>How can we help?</h3>
+      <p>Select an option below to reach an engineer or jump directly to key site areas.</p>
+      <div class="chat-links">
+        <a href="https://wa.me/31619193177" target="_blank" rel="noopener" class="chat-agent-btn">
+          <span class="status-pulse"></span> Connect Live Agent (WhatsApp) →
+        </a>
+        <a href="services.html">Explore IT Services →</a>
+        <a href="contact.html">Open Support Inquiry →</a>
+        <a href="tel:+31619193177">Call Support (+31 6 1919 3177) →</a>
+      </div>
     `;
     document.body.appendChild(chatPanel);
 

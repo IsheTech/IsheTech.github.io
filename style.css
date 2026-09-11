@@ -1082,11 +1082,6 @@ h2 {
 
 
 
-
-
-
-
-
 /* ==========================================================================
    12. FLOATING CHAT WIDGET
    ========================================================================== */
@@ -1119,7 +1114,7 @@ h2 {
   z-index: 11; 
   right: 22px; 
   bottom: 84px; 
-  width: min(320px, calc(100% - 44px)); 
+  width: min(340px, calc(100% - 44px)); 
   padding: 25px; 
   background: #fff; 
   color: var(--ink); 
@@ -1138,23 +1133,43 @@ h2 {
 } 
 
 .chat-panel h3 { 
-  font-size: 1.5rem; 
+  font-size: 1.4rem; 
+  margin-bottom: 6px;
 } 
 
 .chat-panel > p:not(.eyebrow) { 
   color: var(--muted); 
   font-size: .88rem; 
+  margin-bottom: 14px;
 } 
 
 .chat-panel a { 
-  display: block; 
-  margin-top: 9px; 
-  padding: 11px 13px; 
+  display: flex; 
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px; 
+  padding: 10px 12px; 
   background: #edf4f1; 
   color: var(--teal); 
   font-size: .84rem; 
   font-weight: 700; 
+  border-radius: 6px;
+  transition: background 0.2s ease, transform 0.2s ease;
 } 
+
+.chat-panel a:hover {
+  background: #dcece7;
+  transform: translateX(3px);
+}
+
+.chat-panel a.chat-agent-btn {
+  background: var(--teal-dark);
+  color: var(--mint);
+}
+
+.chat-panel a.chat-agent-btn:hover {
+  background: var(--teal);
+}
 
 .chat-close { 
   position: absolute; 
@@ -1166,6 +1181,8 @@ h2 {
   color: var(--muted); 
   cursor: pointer; 
 }
+
+
 
 
 
@@ -1395,7 +1412,6 @@ h2 {
   max-width: 600px; 
   margin: 0 auto; 
 }
-
 
 
 
