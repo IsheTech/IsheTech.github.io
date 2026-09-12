@@ -280,7 +280,8 @@ a {
 .hero-restored { 
   background: linear-gradient(90deg, rgba(8,45,57,.95) 0%, rgba(15,66,82,.88) 56%, rgba(15,66,82,.72) 100%), 
               url("https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat; 
-} 
+}
+
 
 .hero-grid { 
   display: grid; 
