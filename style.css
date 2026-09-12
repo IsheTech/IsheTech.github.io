@@ -1082,8 +1082,19 @@ h2 {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================================
-   12. FLOATING CHAT WIDGET
+   12. FLOATING CHAT WIDGET & BRANDED INLINE INPUT
    ========================================================================== */
 .chat-button { 
   position: fixed; 
@@ -1096,7 +1107,7 @@ h2 {
   border-radius: 99px; 
   padding: 12px 16px; 
   box-shadow: 0 8px 23px rgba(0,0,0,.23); 
-  font: 700 .82rem "DM Sans"; 
+  font: 700 .82rem "DM Sans", sans-serif; 
   cursor: pointer; 
 } 
 
@@ -1133,7 +1144,7 @@ h2 {
 } 
 
 .chat-panel h3 { 
-  font-size: 1.4rem; 
+  font-size: 1.35rem; 
   margin-bottom: 6px;
 } 
 
@@ -1162,19 +1173,21 @@ h2 {
   transform: translateX(3px);
 }
 
-.chat-panel a.chat-agent-btn {
-  background: var(--teal-dark);
-  color: var(--mint);
+.chat-panel a.chat-agent-btn,
+.chat-submit-action {
+  background: var(--teal-dark) !important;
+  color: var(--mint) !important;
 }
 
-.chat-panel a.chat-agent-btn:hover {
-  background: var(--teal);
+.chat-panel a.chat-agent-btn:hover,
+.chat-submit-action:hover {
+  background: var(--teal) !important;
 }
 
 .chat-close { 
   position: absolute; 
-  right: 10px; 
-  top: 9px; 
+  right: 12px; 
+  top: 10px; 
   border: 0; 
   background: none; 
   font-size: 1.45rem; 
@@ -1182,7 +1195,61 @@ h2 {
   cursor: pointer; 
 }
 
+/* Custom Inline Name Step Styles */
+.chat-back {
+  background: none;
+  border: none;
+  color: var(--teal);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 6px;
+  display: inline-block;
+}
 
+.chat-back:hover {
+  text-decoration: underline;
+}
+
+.chat-name-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.chat-name-input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid rgba(8, 45, 57, 0.25);
+  border-radius: 6px;
+  font: 500 0.9rem "DM Sans", sans-serif;
+  outline: none;
+  box-sizing: border-box;
+  color: var(--ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-name-input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(15, 66, 82, 0.12);
+}
+
+.chat-submit-action {
+  border: none;
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+}
 
 
 

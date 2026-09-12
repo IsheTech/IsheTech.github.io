@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 3. DYNAMIC FOOTER GENERATION (CENTERED STATUS BADGE)
+  // 3. DYNAMIC FOOTER GENERATION
   const footer = document.querySelector('.site-footer');
   if (footer) {
     footer.innerHTML = `
@@ -86,33 +86,301 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
   }
 
-  // 4. FLOATING QUICK CHAT WIDGET WITH LIVE AGENT & QUICK LINKS
+  // 4. CUSTOM QUICK CHAT WITH BRANDED INLINE NAME STEP & CRISP INTEGRATION
   const chatButton = document.querySelector('.chat-button');
+  const CRISP_WEBSITE_ID = "23325b2d-b159-4389-8745-1723bfa59002";
+
+  if (CRISP_WEBSITE_ID) {
+    window.$crisp = [];
+    window.CRISP_WEBSITE_ID = CRISP_WEBSITE_ID;
+    (function () {
+      const d = document;
+      const s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+
+    // Hide default Crisp floating button on page load
+    $crisp.push(["do", "chat:hide"]);
+    $crisp.push(["on", "chat:closed", function () {
+      $crisp.push(["do", "chat:hide"]);
+    }]);
+  }
+
+  // Create custom Quick Chat modal menu
   if (chatButton) {
     const chatPanel = document.createElement('div');
     chatPanel.className = 'chat-panel';
-    chatPanel.innerHTML = `
+    
+    const defaultMenuHTML = `
       <button class="chat-close" aria-label="Close chat">&times;</button>
       <p class="eyebrow">IsheTech Assistant</p>
       <h3>How can we help?</h3>
       <p>Select an option below to reach an engineer or jump directly to key site areas.</p>
       <div class="chat-links">
-        <a href="https://wa.me/31619193177" target="_blank" rel="noopener" class="chat-agent-btn">
-          <span class="status-pulse"></span> Connect Live Agent (WhatsApp) →
+        <a href="#" id="open-crisp-agent" class="chat-agent-btn">
+          <span class="status-pulse"></span> Connect to a Live Agent →
         </a>
         <a href="services.html">Explore IT Services →</a>
-        <a href="contact.html">Open Support Inquiry →</a>
-        <a href="tel:+31619193177">Call Support (+31 6 1919 3177) →</a>
+        <a href="contact.html">Contact Us →</a>
       </div>
     `;
+
+    chatPanel.innerHTML = defaultMenuHTML;
     document.body.appendChild(chatPanel);
 
-    chatButton.addEventListener('click', function () {
-      chatPanel.classList.toggle('open');
-    });
+    const resetChatPanel = () => {
+      chatPanel.innerHTML = defaultMenuHTML;
+      bindPanelEvents();
+    };
 
-    chatPanel.querySelector('.chat-close').addEventListener('click', function () {
-      chatPanel.classList.remove('open');
+    const bindPanelEvents = () => {
+      const closeBtn = chatPanel.querySelector('.chat-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          chatPanel.classList.remove('open');
+          setTimeout(resetChatPanel, 200);
+        });
+      }
+
+      const crispAgentBtn = chatPanel.querySelector('#open-crisp-agent');
+      if (crispAgentBtn) {
+        crispAgentBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          // Switch to branded inline name prompt
+          chatPanel.innerHTML = `
+            <button class="chat-close" aria-label="Close chat">&times;</button>
+            <button type="button" class="chat-back" id="chat-back">← Back to Menu</button>
+            <p class="eyebrow" style="margin-top: 10px;">Live Support Desk</p>
+            <h4>What's your name?</h4>
+            <p>Please enter your name so our technical engineer knows who they're speaking with.</p>
+            <form id="crisp-name-form" class="chat-name-form">
+              <input type="text" id="crisp-visitor-name" placeholder="Enter your name..." required autofocus class="chat-name-input" />
+              <button type="submit" class="chat-agent-btn chat-submit-action">
+                <span class="status-pulse"></span> Start Live Chat →
+              </button>
+            </form>
+          `;
+
+          // Back button logic
+          chatPanel.querySelector('#chat-back').addEventListener('click', function() {
+            resetChatPanel();
+          });
+
+          // Close button logic inside step 2
+          chatPanel.querySelector('.chat-close').addEventListener('click', function () {
+            chatPanel.classList.remove('open');
+            setTimeout(resetChatPanel, 200);
+          });
+
+          // Submit handler
+          const nameForm = chatPanel.querySelector('#crisp-name-form');
+          nameForm.addEventListener('submit', function (ev) {
+            ev.preventDefault();
+            const nameInput = chatPanel.querySelector('#crisp-visitor-name');
+            const visitorName = nameInput ? nameInput.value.trim() : '';
+
+            if (visitorName && window.$crisp) {
+              $crisp.push(["set", "user:nickname", [visitorName]]);
+            }
+
+            chatPanel.classList.remove('open');
+            setTimeout(resetChatPanel, 200);
+
+            if (window.$crisp) {
+              $crisp.push(['do', 'chat:show']);
+              $crisp.push(['do', 'chat:open']);
+            }
+          });
+        });
+      }
+    };
+
+    bindPanelEvents();
+
+    // Toggle custom menu on mint button click
+    chatButton.addEventListener('click', function () {
+      if (!chatPanel.classList.contains('open')) {
+        resetChatPanel();
+      }
+      chatPanel.classList.toggle('open');
     });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
